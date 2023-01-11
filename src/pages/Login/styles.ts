@@ -3,19 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex: 1;
+  height: 100vh;
 `;
 
 export const LoginContainer = styled.div`
   display: flex;
-  flex: 0.5;
+  flex: 0.4;
   flex-direction: column;
-  padding: 0 6rem;
+  padding: 0 8rem 0 8rem;
 
   img {
-    border: 1px solid green;
-    margin: 4rem 0;
-    width: 5rem;
-    height: 5rem;
+    width: 10rem;
+    height: 10rem;
   }
 
   h1 {
@@ -33,11 +32,11 @@ export const LoginContainer = styled.div`
   a {
     text-decoration: underline;
     color: ${(props) => props.theme["green-500"]};
+    cursor: pointer;
   }
 
   input {
-    display: flex;
-    flex: 1;
+    width: 95%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid ${(props) => props.theme["gray-300"]};
@@ -59,20 +58,30 @@ export const LoginContainer = styled.div`
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 0.5rem;
+    cursor: pointer;
   }
 
   .register {
     display: flex;
     justify-content: center;
+    gap: 0.25rem;
   }
+`;
+
+export const LoginContent = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 2rem 0 2rem 0;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
-  flex: 0.5;
+  flex: 0.6;
   flex-direction: column;
   align-items: center;
   background-color: ${(props) => props.theme["green-400"]};
+  border-radius: 8px 0px 0px 8px;
 
   h1 {
     color: ${(props) => props.theme["black-300"]};
@@ -88,11 +97,9 @@ export const InfoContainer = styled.div`
     padding: 0 2.5rem;
   }
 
-  div {
-    display: flex;
-    align-self: flex-end;
-    border: 1px solid red;
+  img {
+    margin-left: 50%;
     width: 50%;
-    height: 50%;
+    height: 70%;
   }
 `;
