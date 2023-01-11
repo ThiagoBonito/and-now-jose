@@ -13,10 +13,10 @@ export const Login = () => {
       <LoginContainer>
         <LoginContent>
           <img src={Logo} />
-          <h1>Bem Vindo Aluno!</h1>
+          <h1>Bem-vindo, estudante!</h1>
           <p>
-            Bem vindo de volta aluno! Por favor, informe seu Usuário e Senha,
-            para entrar na plataforma
+            Bem-vindo de volta! Por gentileza, informe seu usuário e senha
+            para ingressar na plataforma.
           </p>
           <input placeholder="Nome do usuário" />
           <input placeholder="Digite sua senha" />
