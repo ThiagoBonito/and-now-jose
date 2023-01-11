@@ -22,6 +22,7 @@ export const ModulesContainer = styled.div`
 export const RankingsContainer = styled.div`
   display: flex;
   flex: 0.35;
+  flex-direction: column;
   margin-top: 1.5rem;
 
   .symbolCard {
@@ -33,7 +34,7 @@ export const RankingsContainer = styled.div`
     align-items: center;
     border: 2px solid ${(props) => props.theme["black-300"]};
     margin: 1rem;
-    height: 40vh;
+    height: 35vh;
     border-radius: 8px;
     h1 {
       background-color: ${(props) => props.theme["white"]};
@@ -47,6 +48,26 @@ export const RankingsContainer = styled.div`
       width: 60%;
       height: 60%;
       margin-bottom: 0.5rem;
+    }
+  }
+  .rankingCard {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid ${(props) => props.theme["black-300"]};
+    margin: 1rem;
+    height: 35vh;
+    border-radius: 8px;
+    h1 {
+      background-color: ${(props) => props.theme["white"]};
+      position: absolute;
+      top: 0;
+      padding: 0 0.5rem;
+      margin: -14px 0 0;
+      font-size: 1rem;
     }
   }
 `;

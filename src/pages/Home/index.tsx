@@ -19,6 +19,9 @@ export const Home = () => {
           <img src={EmptySymbol} />
           <p>Nenhum emblema encontrado!</p>
         </div>
+        <div className="rankingCard">
+          <h1>Ranking</h1>
+        </div>
       </RankingsContainer>
     </HomeContainer>
   );
