@@ -13,7 +13,9 @@ export const Register = () => {
       </InfoContainer>
       <RegisterContainer>
         <div className="header">
-          <ArrowLeft size={32} color="#17191C" weight="bold" />
+          <button className="backPage">
+            <ArrowLeft size={32} color="#17191C" weight="bold" />
+          </button>
           <h1>Olá Novo Aluno!</h1>
         </div>
         <p>

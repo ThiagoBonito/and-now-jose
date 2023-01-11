@@ -44,6 +44,17 @@ export const RegisterContainer = styled.div`
     gap: 0.5rem;
     margin-bottom: 0.5rem;
   }
+  .backPage {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
   p {
     display: flex;
     color: ${(props) => props.theme["black-200"]};
