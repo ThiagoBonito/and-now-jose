@@ -1,12 +1,18 @@
 import styled from "styled-components";
+import { defaultTheme } from "../../styles/themes/default";
 
-export const ModuleCard = styled.div`
+type ModuleCardProps = {
+  color: keyof typeof defaultTheme;
+  progress: number;
+};
+
+export const ModuleCard = styled.div<ModuleCardProps>`
   display: flex;
   height: fit-content;
   flex-direction: column;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  background-color: ${(props) => props.theme["green-300"]};
+  background-color: ${(props) => props.theme[props.color]};
   .backgroundCard {
     display: flex;
     flex: 1;
@@ -42,11 +48,11 @@ export const ModuleCard = styled.div`
         padding: 1rem;
         border-radius: 50%;
         border: none;
-        background-color: rgba(0, 200, 101, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
         cursor: pointer;
 
         &:hover {
-          background-color: rgba(0, 200, 101, 0.8);
+          background-color: rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -62,10 +68,10 @@ export const ModuleCard = styled.div`
       display: flex;
       flex: 0.8;
       height: 1rem;
-      background-color: rgba(0, 200, 101, 0.8);
+      background-color: rgba(0, 0, 0, 0.1);
       border-radius: 16px;
       .progress {
-        width: 50%;
+        width: ${(props) => (props.progress ? `${props.progress}%` : "0%")};
         background-color: ${(props) => props.theme["white"]};
         border-radius: 16px;
       }
