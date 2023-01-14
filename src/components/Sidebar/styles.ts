@@ -4,7 +4,7 @@ export const SidebarContainer = styled.div`
   display: flex;
   flex: 0.15;
   flex-direction: column;
-  height: 85vh;
+  height: 125vh;
   align-items: center;
   padding-top: 1.5rem;
 

@@ -10,4 +10,7 @@ export const defaultTheme = {
   "green-500": "#00C965",
   "cyan-400": "#00CFA8",
   "blue-200": "#00B8D6",
+  "gold-500": "#FFAD33",
+  "silver-500": "#ABB1BA",
+  "cooper-500": "#CD7F32",
 };
