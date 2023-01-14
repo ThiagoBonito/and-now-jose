@@ -8,6 +8,8 @@ import Logo from "../../assets/logo.jpeg";
 import OldManVector from "../../assets/old-man-vector.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -18,7 +20,9 @@ export const Login = () => {
     if (username === "ti@eagorajose.com" && password === "eagorajose") {
       return navigate("/Home");
     } else {
-      alert("Usuário ou senha incorretas");
+      return toast.error("Usuário ou senha incorretas!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
@@ -51,6 +55,7 @@ export const Login = () => {
           <button className="login" onClick={handleLogin}>
             Iniciar sessão
           </button>
+          <ToastContainer />
           <div className="register">
             <p>Não Tem uma Conta?</p>
             <a href="/Cadastro">Clique aqui, e se Inscreva!</a>
