@@ -2,6 +2,7 @@ import { ArrowRight, Globe, ShieldCheckered } from "phosphor-react";
 import { ModuleCard } from "./styles";
 import { defaultTheme } from "../../styles/themes/default";
 import { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
 export type IconType =
   | {
@@ -16,6 +17,7 @@ export type IconType =
 export type ModuleProps = {
   idModule: number;
   icon: IconType;
+  route: string;
   title: string;
   color: keyof typeof defaultTheme;
   watchedClass: number;
@@ -25,11 +27,13 @@ export type ModuleProps = {
 export const Module = ({
   idModule,
   icon,
+  route,
   title,
   color,
   watchedClass,
   allClasses,
 }: ModuleProps) => {
+  const navigate = useNavigate();
   return (
     <ModuleCard color={color} progress={(watchedClass / allClasses) * 100}>
       <div className="backgroundCard">
@@ -49,7 +53,7 @@ export const Module = ({
           </div>
         </div>
         <div className="expandModule">
-          <button>
+          <button onClick={() => navigate(`/Home/Modules/${route}`)}>
             <ArrowRight size={24} />
           </button>
         </div>
