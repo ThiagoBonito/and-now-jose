@@ -1,8 +1,10 @@
 import { Container, InfoContainer, RegisterContainer } from "./styles";
 import CellphoneImage from "../../assets/cellphone-vector.svg";
 import { ArrowLeft } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <InfoContainer>
@@ -13,7 +15,7 @@ export const Register = () => {
       </InfoContainer>
       <RegisterContainer>
         <div className="header">
-          <button className="backPage">
+          <button className="backPage" onClick={() => navigate("/")}>
             <ArrowLeft size={32} color="#17191C" weight="bold" />
           </button>
           <h1>Olá Novo Aluno!</h1>

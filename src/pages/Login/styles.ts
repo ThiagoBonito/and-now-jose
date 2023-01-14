@@ -100,6 +100,6 @@ export const InfoContainer = styled.div`
   img {
     margin-left: 50%;
     width: 50%;
-    height: 70%;
+    height: 100%;
   }
 `;

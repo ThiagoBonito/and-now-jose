@@ -9,7 +9,7 @@ export const SidebarContainer = styled.div`
   padding-top: 1.5rem;
 
   .content {
-    height: 73vh;
+    height: 87%;
   }
 
   .user {

@@ -6,8 +6,22 @@ import {
 } from "./styles";
 import Logo from "../../assets/logo.jpeg";
 import OldManVector from "../../assets/old-man-vector.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const handleLogin = () => {
+    if (username === "ti@eagorajose.com" && password === "eagorajose") {
+      return navigate("/Home");
+    } else {
+      alert("Usuário ou senha incorretas");
+    }
+  };
+
   return (
     <Container>
       <LoginContainer>
@@ -15,19 +29,31 @@ export const Login = () => {
           <img src={Logo} />
           <h1>Bem-vindo, estudante!</h1>
           <p>
-            Bem-vindo de volta! Por gentileza, informe seu usuário e senha
-            para ingressar na plataforma.
+            Bem-vindo de volta! Por gentileza, informe seu usuário e senha para
+            ingressar na plataforma.
           </p>
-          <input placeholder="Nome do usuário" />
-          <input placeholder="Digite sua senha" />
+          <input
+            placeholder="Nome do usuário"
+            type="email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            placeholder="Digite sua senha"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <div className="optionsPassword">
             <div>Lembrar senha</div>
             <a>Esqueci minha senha</a>
           </div>
-          <button className="login">Iniciar sessão</button>
+          <button className="login" onClick={handleLogin}>
+            Iniciar sessão
+          </button>
           <div className="register">
             <p>Não Tem uma Conta?</p>
-            <a>Clique aqui, e se Inscreva!</a>
+            <a href="/Cadastro">Clique aqui, e se Inscreva!</a>
           </div>
         </LoginContent>
       </LoginContainer>
