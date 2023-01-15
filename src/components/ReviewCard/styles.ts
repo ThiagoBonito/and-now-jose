@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { defaultTheme } from "../../styles/themes/default";
 
 type ReviewContainerProps = {
   isModuleFinished: boolean;
+  backgroundColor: keyof typeof defaultTheme;
 };
 
 export const ReviewContainer = styled.div<ReviewContainerProps>`
@@ -9,7 +11,7 @@ export const ReviewContainer = styled.div<ReviewContainerProps>`
   height: 6rem;
   background-color: ${(props) =>
     props.isModuleFinished
-      ? props.theme["green-300"]
+      ? props.theme[`${props.backgroundColor}`]
       : props.theme["gray-200"]};
   margin: 1rem 0 2rem 0;
   padding: 1rem 1rem 0.5rem 1rem;

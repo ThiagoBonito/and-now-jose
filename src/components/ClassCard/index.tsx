@@ -1,15 +1,22 @@
 import { CheckCircle, Circle } from "phosphor-react";
+import { defaultTheme } from "../../styles/themes/default";
 import { ClassModule } from "./styles";
 
 type ClassCardProps = {
   id: number;
   title: string;
   isFinished: boolean;
+  backgroundColor: keyof typeof defaultTheme;
 };
 
-export const ClassCard = ({ id, title, isFinished }: ClassCardProps) => {
+export const ClassCard = ({
+  id,
+  title,
+  isFinished,
+  backgroundColor,
+}: ClassCardProps) => {
   return (
-    <ClassModule>
+    <ClassModule backgroundColor={backgroundColor}>
       <div className="contentClass">
         <div>
           {isFinished ? (

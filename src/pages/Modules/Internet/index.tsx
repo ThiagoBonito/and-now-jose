@@ -4,7 +4,7 @@ import { ClassContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { ReviewCard } from "../../../components/ReviewCard";
 
-export const WhatsApp = () => {
+export const Internet = () => {
   const navigate = useNavigate();
 
   return (
@@ -17,32 +17,31 @@ export const WhatsApp = () => {
       </div>
       <div className="contentClass">
         <h5>Módulo 1</h5>
-        <h2>Básico do WhatsApp</h2>
+        <h2>Navegação na Internet</h2>
         <p>
-          Olá Aluno! Bem vindo ao módulo Básico do WhatsApp, onde, neste módulo
-          você ira aprender desde como baixar o Aplicativo Whatsapp, até como
-          mandar mensagens, realizar ligações, mandar vídeos, e etc.
+          Olá Aluno! Bem vindo ao módulo Navegação na Internet, onde, neste
+          módulo você ira aprender ferramentas para navegação no seu dia a dia.
         </p>
         <h2>Revisão do Módulo</h2>
         <ReviewCard
-          isModuleFinished={false}
+          isModuleFinished={true}
           finishedClasses={6}
           totalClasses={9}
-          backgroundColor={"green-300"}
+          backgroundColor={"cyan-400"}
         />
         <h2>Aulas</h2>
         <p>(6/9 aulas completas)</p>
         <ClassCard
           id={1}
-          title={"Instalando o WhatsApp"}
+          title={"Conhecendo o Google"}
           isFinished={true}
-          backgroundColor={"green-300"}
+          backgroundColor={"cyan-400"}
         />
         <ClassCard
           id={2}
-          title={"Configurando sua conta"}
+          title={"Pesquisas Avançadas"}
           isFinished={false}
-          backgroundColor={"green-300"}
+          backgroundColor={"cyan-400"}
         />
       </div>
     </ClassContainer>

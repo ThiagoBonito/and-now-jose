@@ -1,12 +1,17 @@
 import styled from "styled-components";
+import { defaultTheme } from "../../styles/themes/default";
 
-export const ClassModule = styled.div`
+type ClassModuleProps = {
+  backgroundColor: keyof typeof defaultTheme;
+};
+
+export const ClassModule = styled.div<ClassModuleProps>`
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: center;
   align-items: space-between;
-  background-color: ${(props) => props.theme["green-300"]};
+  background-color: ${(props) => props.theme[`${props.backgroundColor}`]};
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;

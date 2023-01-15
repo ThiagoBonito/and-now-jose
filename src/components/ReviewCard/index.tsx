@@ -1,3 +1,4 @@
+import { defaultTheme } from "../../styles/themes/default";
 import { DoughnutGraph } from "../DoughnutGraph";
 import { ReviewContainer } from "./styles";
 
@@ -5,15 +6,20 @@ type ReviewCardProps = {
   isModuleFinished: boolean;
   finishedClasses: number;
   totalClasses: number;
+  backgroundColor: keyof typeof defaultTheme;
 };
 
 export const ReviewCard = ({
   isModuleFinished,
   finishedClasses,
   totalClasses,
+  backgroundColor,
 }: ReviewCardProps) => {
   return (
-    <ReviewContainer isModuleFinished={isModuleFinished}>
+    <ReviewContainer
+      isModuleFinished={isModuleFinished}
+      backgroundColor={backgroundColor}
+    >
       <div className="title">
         <h2>Revisão {isModuleFinished ? "Liberada" : "Bloqueada"}!</h2>
         <p>Termine todas as aulas do módulo para liberar a revisão!</p>
