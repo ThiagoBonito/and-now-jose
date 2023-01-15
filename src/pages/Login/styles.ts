@@ -65,6 +65,16 @@ export const LoginContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 0.25rem;
+
+    .navigate {
+      text-decoration: underline;
+      display: flex;
+      border: none;
+      height: fit-content;
+      background-color: transparent;
+      color: ${(props) => props.theme["green-500"]};
+      cursor: pointer;
+    }
   }
 `;
 

@@ -58,7 +58,9 @@ export const Login = () => {
           <ToastContainer />
           <div className="register">
             <p>Não Tem uma Conta?</p>
-            <a href="/Cadastro">Clique aqui, e se Inscreva!</a>
+            <button className="navigate" onClick={() => navigate("/Cadastro")}>
+              Clique aqui, e se Inscreva!
+            </button>
           </div>
         </LoginContent>
       </LoginContainer>
