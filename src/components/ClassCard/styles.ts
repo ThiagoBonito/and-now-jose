@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ClassModule = styled.div`
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: space-between;
   background-color: ${(props) => props.theme["green-300"]};
@@ -11,15 +11,9 @@ export const ClassModule = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
 
-  .align {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-  }
-
   .contentClass {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     align-items: center;
     gap: 1rem;
   }
