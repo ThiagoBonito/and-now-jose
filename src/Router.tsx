@@ -20,9 +20,9 @@ export function Router() {
         <Route path="/Home/Modules/WhatsApp" element={<WhatsApp />} />
         <Route path="/Home/Modules/Internet" element={<Internet />} />
         <Route path="/Home/Modules/Seguranca" element={<Seguranca />} />
-        <Route path="/Home/Tests/WhatsApp" element={<WhatsAppClass />} />
-        <Route path="/Home/Tests/Internet" element={<InternetClass />} />
-        <Route path="/Home/Tests/Seguranca" element={<SegurancaClass />} />
+        <Route path="/Home/Classes/WhatsApp" element={<WhatsAppClass />} />
+        <Route path="/Home/Classes/Internet" element={<InternetClass />} />
+        <Route path="/Home/Classes/Seguranca" element={<SegurancaClass />} />
       </Route>
     </Routes>
   );

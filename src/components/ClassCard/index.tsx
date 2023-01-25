@@ -38,8 +38,8 @@ export const ClassCard = ({
         <button
           onClick={() =>
             isFinished
-              ? navigate(`/Home/Tests/${module}`)
-              : navigate(`/Home/Tests/${module}`)
+              ? navigate(`/Home/Classes/${module}`)
+              : navigate(`/Home/Classes/${module}`)
           }
         >
           {isFinished ? "Revisar" : "Iniciar"}
