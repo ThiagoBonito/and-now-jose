@@ -36,7 +36,7 @@ export const ClassContainer = styled.div`
   .contentClass {
     display: flex;
     flex: 0.85;
-    height: 75vh;
+    height: 83vh;
     flex-direction: column;
     padding: 0 2rem;
 
