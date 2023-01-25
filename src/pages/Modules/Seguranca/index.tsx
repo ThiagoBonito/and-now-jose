@@ -24,6 +24,7 @@ export const Seguranca = () => {
         </p>
         <h2>Revisão do Módulo</h2>
         <ReviewCard
+          module={"Seguranca"}
           isModuleFinished={false}
           finishedClasses={3}
           totalClasses={9}

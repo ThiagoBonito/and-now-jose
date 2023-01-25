@@ -25,6 +25,7 @@ export const WhatsApp = () => {
         </p>
         <h2>Revisão do Módulo</h2>
         <ReviewCard
+          module={"WhatsApp"}
           isModuleFinished={false}
           finishedClasses={6}
           totalClasses={9}

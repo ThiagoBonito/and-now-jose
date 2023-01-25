@@ -38,6 +38,7 @@ export const ReviewContainer = styled.div<ReviewContainerProps>`
         border: none;
         color: ${(props) => props.theme["black-300"]};
         font-weight: bold;
+        cursor: pointer;
       }
     }
   }

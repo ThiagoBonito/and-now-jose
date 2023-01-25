@@ -1,8 +1,10 @@
 import { defaultTheme } from "../../styles/themes/default";
 import { DoughnutGraph } from "../DoughnutGraph";
 import { ReviewContainer } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 type ReviewCardProps = {
+  module: string;
   isModuleFinished: boolean;
   finishedClasses: number;
   totalClasses: number;
@@ -10,11 +12,13 @@ type ReviewCardProps = {
 };
 
 export const ReviewCard = ({
+  module,
   isModuleFinished,
   finishedClasses,
   totalClasses,
   backgroundColor,
 }: ReviewCardProps) => {
+  const navigate = useNavigate();
   return (
     <ReviewContainer
       isModuleFinished={isModuleFinished}
@@ -27,7 +31,9 @@ export const ReviewCard = ({
       <div className="graph">
         {isModuleFinished ? (
           <div className="goReview">
-            <button>Iniciar Revisão</button>
+            <button onClick={() => navigate(`/Home/Tests/${module}`)}>
+              Iniciar Revisão
+            </button>
           </div>
         ) : (
           <DoughnutGraph

@@ -24,6 +24,7 @@ export const Internet = () => {
         </p>
         <h2>Revisão do Módulo</h2>
         <ReviewCard
+          module={"Internet"}
           isModuleFinished={true}
           finishedClasses={6}
           totalClasses={9}
