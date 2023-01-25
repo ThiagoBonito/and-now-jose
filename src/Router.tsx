@@ -6,9 +6,9 @@ import { Home } from "./pages/Home";
 import { WhatsApp } from "./pages/Modules/WhatsApp";
 import { Internet } from "./pages/Modules/Internet";
 import { Seguranca } from "./pages/Modules/Seguranca";
-import { WhatsApp as WhatsAppTest } from "./pages/Tests/WhatsApp";
-import { Internet as InternetTest } from "./pages/Tests/Internet";
-import { Seguranca as SegurancaTest } from "./pages/Tests/Seguranca";
+import { WhatsApp as WhatsAppClass } from "./pages/Classes/WhatsApp";
+import { Internet as InternetClass } from "./pages/Classes/Internet";
+import { Seguranca as SegurancaClass } from "./pages/Classes/Seguranca";
 
 export function Router() {
   return (
@@ -20,9 +20,9 @@ export function Router() {
         <Route path="/Home/Modules/WhatsApp" element={<WhatsApp />} />
         <Route path="/Home/Modules/Internet" element={<Internet />} />
         <Route path="/Home/Modules/Seguranca" element={<Seguranca />} />
-        <Route path="/Home/Tests/WhatsApp" element={<WhatsAppTest />} />
-        <Route path="/Home/Tests/Internet" element={<InternetTest />} />
-        <Route path="/Home/Tests/Seguranca" element={<SegurancaTest />} />
+        <Route path="/Home/Tests/WhatsApp" element={<WhatsAppClass />} />
+        <Route path="/Home/Tests/Internet" element={<InternetClass />} />
+        <Route path="/Home/Tests/Seguranca" element={<SegurancaClass />} />
       </Route>
     </Routes>
   );
