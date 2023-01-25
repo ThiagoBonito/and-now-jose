@@ -33,12 +33,14 @@ export const Internet = () => {
         <p>(6/9 aulas completas)</p>
         <ClassCard
           id={1}
+          module={"Internet"}
           title={"Conhecendo o Google"}
           isFinished={true}
           backgroundColor={"cyan-400"}
         />
         <ClassCard
           id={2}
+          module={"Internet"}
           title={"Pesquisas Avançadas"}
           isFinished={false}
           backgroundColor={"cyan-400"}

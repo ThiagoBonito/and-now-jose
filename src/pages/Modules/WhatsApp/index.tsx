@@ -34,12 +34,14 @@ export const WhatsApp = () => {
         <p>(6/9 aulas completas)</p>
         <ClassCard
           id={1}
+          module={"WhatsApp"}
           title={"Instalando o WhatsApp"}
           isFinished={true}
           backgroundColor={"green-300"}
         />
         <ClassCard
           id={2}
+          module={"WhatsApp"}
           title={"Configurando sua conta"}
           isFinished={false}
           backgroundColor={"green-300"}

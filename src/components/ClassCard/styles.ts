@@ -34,8 +34,10 @@ export const ClassModule = styled.div<ClassModuleProps>`
       padding: 1rem 1.5rem;
       border-radius: 52px;
       border: none;
+      background-color: ${(props) => props.theme["white"]};
       color: ${(props) => props.theme["black-300"]};
       font-weight: bold;
+      cursor: pointer;
     }
   }
 `;

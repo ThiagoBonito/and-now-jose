@@ -1,9 +1,11 @@
 import { CheckCircle, Circle } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 import { defaultTheme } from "../../styles/themes/default";
 import { ClassModule } from "./styles";
 
 type ClassCardProps = {
   id: number;
+  module: string;
   title: string;
   isFinished: boolean;
   backgroundColor: keyof typeof defaultTheme;
@@ -11,10 +13,12 @@ type ClassCardProps = {
 
 export const ClassCard = ({
   id,
+  module,
   title,
   isFinished,
   backgroundColor,
 }: ClassCardProps) => {
+  const navigate = useNavigate();
   return (
     <ClassModule backgroundColor={backgroundColor}>
       <div className="contentClass">
@@ -31,7 +35,15 @@ export const ClassCard = ({
         </div>
       </div>
       <div className="goClass">
-        <button>{isFinished ? "Revisar" : "Iniciar"}</button>
+        <button
+          onClick={() =>
+            isFinished
+              ? navigate(`/Home/Tests/${module}`)
+              : navigate(`/Home/Tests/${module}`)
+          }
+        >
+          {isFinished ? "Revisar" : "Iniciar"}
+        </button>
       </div>
     </ClassModule>
   );

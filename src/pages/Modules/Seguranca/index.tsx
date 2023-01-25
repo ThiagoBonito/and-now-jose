@@ -33,12 +33,14 @@ export const Seguranca = () => {
         <p>(6/9 aulas completas)</p>
         <ClassCard
           id={1}
+          module={"Seguranca"}
           title={"Instalando o Anti-vírus"}
           isFinished={true}
           backgroundColor={"blue-200"}
         />
         <ClassCard
           id={2}
+          module={"Seguranca"}
           title={"Descobrir se um site é confiável"}
           isFinished={false}
           backgroundColor={"blue-200"}
