@@ -13,18 +13,20 @@ export const Sidebar = () => {
           <img src={EmptyPhoto} />
           <p>José Almeida</p>
         </div>
-        <button className="page" onClick={() => navigate("/Home")}>
-          <Books size={24} color="#454B54" weight="bold" />
-          <p>Estudos</p>
-        </button>
-        <button className="page" onClick={() => navigate("/Rankings")}>
-          <Trophy size={24} color="#454B54" weight="bold" />
-          <p>Rankings</p>
-        </button>
-        <button className="page" onClick={() => navigate("/Perfil")}>
-          <User size={24} color="#454B54" weight="bold" />
-          <p>Perfil</p>
-        </button>
+        <div className="buttons">
+          <button className="page" onClick={() => navigate("/Home")}>
+            <Books size={24} color="#454B54" weight="bold" />
+            <p>Estudos</p>
+          </button>
+          <button className="page" onClick={() => navigate("/Rankings")}>
+            <Trophy size={24} color="#454B54" weight="bold" />
+            <p>Rankings</p>
+          </button>
+          <button className="page" onClick={() => navigate("/Perfil")}>
+            <User size={24} color="#454B54" weight="bold" />
+            <p>Perfil</p>
+          </button>
+        </div>
       </div>
       <button className="exit" onClick={() => navigate("/")}>
         <SignOut size={24} color="#17191C" weight="bold" />

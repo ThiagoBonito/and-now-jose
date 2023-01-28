@@ -70,4 +70,27 @@ export const ClassContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+
+    .backPage {
+      justify-content: flex-start;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    .contentClass {
+      h2 {
+        font-size: 1.25rem;
+      }
+      p {
+        font-size: 0.75rem !important;
+      }
+    }
+    .buttonFinished {
+      button {
+        font-size: 0.75rem !important;
+      }
+    }
+  }
 `;

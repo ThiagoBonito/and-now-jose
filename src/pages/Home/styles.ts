@@ -9,6 +9,10 @@ export const HomeContainer = styled.div`
   display: flex;
   flex: 1;
   gap: 2rem;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
 `;
 
 export const ModulesContainer = styled.div`
@@ -21,6 +25,16 @@ export const ModulesContainer = styled.div`
     font-size: 1.5rem;
     color: ${(props) => props.theme["black-300"]};
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 2560px) {
+    flex: 0.6;
+  }
+  @media (max-width: 1440px) {
+    flex: 0.5;
+  }
+  @media (max-width: 768px) {
+    flex: 0.8;
   }
 `;
 
@@ -122,6 +136,16 @@ export const RankingsContainer = styled.div`
         }
       }
     }
+  }
+
+  @media (max-width: 2560px) {
+    flex: 0.25;
+  }
+  @media (max-width: 1440px) {
+    flex: 0.35;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 

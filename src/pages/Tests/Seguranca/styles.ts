@@ -99,4 +99,51 @@ export const ClassContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .backPage {
+      justify-content: flex-start;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    .contentClass {
+      div:nth-child(1) {
+        height: 50vh;
+        overflow: auto;
+      }
+      h5 {
+        font-size: 0.75rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.75rem;
+      }
+    }
+    .options {
+      div {
+        padding: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+    }
+    .helpButtons {
+      gap: 0.5rem !important;
+
+      .help {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+      }
+      .skip {
+        padding: 0 0.5rem !important;
+        font-size: 0.75rem !important;
+      }
+    }
+    .save {
+      padding: 0 0.5rem !important;
+      font-size: 0.75rem !important;
+    }
+  }
 `;

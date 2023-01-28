@@ -74,4 +74,24 @@ export const SidebarContainer = styled.div`
       background-color: ${(props) => props.theme["green-500"]};
     }
   }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    .user {
+      flex: 1;
+    }
+    .exit {
+      width: 100%;
+    }
+  }
 `;

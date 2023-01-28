@@ -42,4 +42,21 @@ export const ReviewContainer = styled.div<ReviewContainerProps>`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    h2 {
+      font-size: 1rem !important;
+    }
+    p {
+      font-size: 0.5rem !important;
+    }
+    .goReview {
+      padding-left: 25% !important;
+    }
+  }
+  @media (max-width: 320px) {
+    h2 {
+      font-size: 0.75rem !important;
+    }
+  }
 `;

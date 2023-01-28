@@ -40,4 +40,16 @@ export const ClassModule = styled.div<ClassModuleProps>`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 425px) {
+    .contentClass {
+      h3 {
+        font-size: 0.75rem !important;
+      }
+      h2 {
+        font-size: 1rem !important;
+      }
+      gap: 0.25rem !important;
+    }
+  }
 `;

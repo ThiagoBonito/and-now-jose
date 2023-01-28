@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex: 1;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -26,6 +30,17 @@ export const InfoContainer = styled.div`
     img {
       width: 75%;
       height: 80%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 1.25rem;
+    }
+    div {
+      margin-bottom: 7rem;
     }
   }
 `;
@@ -76,5 +91,18 @@ export const RegisterContainer = styled.div`
     border-radius: 8px;
     margin-bottom: 0.5rem;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+
+    .header {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      font-size: 0.75rem;
+    }
   }
 `;

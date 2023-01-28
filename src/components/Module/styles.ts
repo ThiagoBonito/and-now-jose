@@ -77,4 +77,38 @@ export const ModuleCard = styled.div<ModuleCardProps>`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .iconCard {
+      width: fit-content;
+      height: fit-content;
+    }
+    .nameCard {
+      h2 {
+        font-size: 0.75rem;
+      }
+      .title {
+        font-size: 1rem;
+      }
+    }
+    .expandModule {
+      padding: 0.5rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .nameCard {
+      h2 {
+        font-size: 0.5rem;
+      }
+      .title {
+        font-size: 1rem !important;
+      }
+    }
+    .progressClass {
+      p {
+        font-size: 0.75rem !important;
+      }
+    }
+  }
 `;

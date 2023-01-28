@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex: 1;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const LoginContainer = styled.div`
@@ -76,6 +80,29 @@ export const LoginContainer = styled.div`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 0 2rem 0 2rem;
+
+    img {
+      width: 30%;
+      height: 30%;
+    }
+    h1 {
+      padding: 0;
+      font-size: 1.25rem;
+    }
+    p {
+      padding: 0;
+      font-size: 0.75rem;
+    }
+    .optionsPassword {
+      font-size: 0.75rem;
+    }
+    a {
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export const LoginContent = styled.div`
@@ -108,8 +135,36 @@ export const InfoContainer = styled.div`
   }
 
   img {
+    margin-top: 15%;
     margin-left: 50%;
     width: 50%;
     height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      padding: 0 0.5rem;
+      font-size: 1.25rem;
+    }
+    p {
+      padding: 0 1.5rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 2560px) {
+    img {
+      margin-top: 35%;
+    }
+  }
+  @media (max-width: 1440px) {
+    img {
+      margin-top: 23%;
+    }
+  }
+  @media (max-width: 1024px) {
+    img {
+      margin-top: 27%;
+    }
   }
 `;
