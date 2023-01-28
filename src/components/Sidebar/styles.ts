@@ -54,6 +54,10 @@ export const SidebarContainer = styled.div`
       background-color: ${(props) => props.theme["green-100"]};
     }
   }
+  .active {
+    border: 2px solid ${(props) => props.theme["green-400"]};
+    background-color: ${(props) => props.theme["green-100"]};
+  }
 
   .exit {
     display: flex;

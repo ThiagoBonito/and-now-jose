@@ -4,6 +4,8 @@ import { SidebarContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {
+  const url = window.location.href;
+  const activePage = url.split("/");
   const navigate = useNavigate();
 
   return (
@@ -14,15 +16,37 @@ export const Sidebar = () => {
           <p>José Almeida</p>
         </div>
         <div className="buttons">
-          <button className="page" onClick={() => navigate("/Home")}>
+          <button
+            className={
+              `page` +
+              ` ${activePage[activePage.length - 1] === "Home" ? "active" : ""}`
+            }
+            onClick={() => navigate("/Home")}
+          >
             <Books size={24} color="#454B54" weight="bold" />
             <p>Estudos</p>
           </button>
-          <button className="page" onClick={() => navigate("/Rankings")}>
+          <button
+            className={
+              `page` +
+              ` ${
+                activePage[activePage.length - 1] === "Rankings" ? "active" : ""
+              }`
+            }
+            onClick={() => navigate("/Rankings")}
+          >
             <Trophy size={24} color="#454B54" weight="bold" />
             <p>Rankings</p>
           </button>
-          <button className="page" onClick={() => navigate("/Perfil")}>
+          <button
+            className={
+              `page` +
+              ` ${
+                activePage[activePage.length - 1] === "Perfil" ? "active" : ""
+              }`
+            }
+            onClick={() => navigate("/Perfil")}
+          >
             <User size={24} color="#454B54" weight="bold" />
             <p>Perfil</p>
           </button>
