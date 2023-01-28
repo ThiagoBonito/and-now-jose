@@ -4,12 +4,13 @@ export const SidebarContainer = styled.div`
   display: flex;
   flex: 0.15;
   flex-direction: column;
-  height: 125vh;
+  height: 80vh !important;
   align-items: center;
   padding-top: 1.5rem;
 
   .content {
-    height: 82%;
+    height: 90% !important;
+    margin-bottom: 1rem;
   }
 
   .user {
@@ -95,7 +96,6 @@ export const SidebarContainer = styled.div`
       flex: 1;
     }
     .exit {
-      margin-top: 1rem;
       width: 100%;
     }
   }
