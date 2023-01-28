@@ -95,6 +95,7 @@ export const SidebarContainer = styled.div`
       flex: 1;
     }
     .exit {
+      margin-top: 1rem;
       width: 100%;
     }
   }
