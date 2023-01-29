@@ -14,6 +14,9 @@ import { Seguranca as SegurancaClass } from "./pages/Classes/Seguranca";
 import { WhatsApp as WhatsAppTest } from "./pages/Tests/WhatsApp";
 import { Internet as InternetTest } from "./pages/Tests/Internet";
 import { Seguranca as SegurancaTest } from "./pages/Tests/Seguranca";
+import { WhatsApp as WhatsAppFeedBack } from "./pages/Feedback/WhatsApp";
+import { Internet as InternetFeedBack } from "./pages/Feedback/Internet";
+import { Seguranca as SegurancaFeedBack } from "./pages/Feedback/Seguranca";
 
 export function Router() {
   return (
@@ -31,6 +34,12 @@ export function Router() {
         <Route path="/Home/Tests/WhatsApp" element={<WhatsAppTest />} />
         <Route path="/Home/Tests/Internet" element={<InternetTest />} />
         <Route path="/Home/Tests/Seguranca" element={<SegurancaTest />} />
+        <Route path="/Home/Feedback/WhatsApp" element={<WhatsAppFeedBack />} />
+        <Route path="/Home/Feedback/Internet" element={<InternetFeedBack />} />
+        <Route
+          path="/Home/Feedback/Seguranca"
+          element={<SegurancaFeedBack />}
+        />
       </Route>
       <Route path="/Rankings" element={<DefaultLayout />}>
         <Route path="/Rankings" element={<Rankings />} />

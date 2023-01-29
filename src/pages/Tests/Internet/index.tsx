@@ -47,7 +47,8 @@ export const Internet = () => {
 
   const handleFinishClass = () => {
     console.log("Finalizada!");
-    navigate(`/Home/Modules/${paths[paths.length - 1]}`);
+    navigate(`/Home/Feedback/${paths[paths.length - 1]}`);
+    // navigate(`/Home/Modules/${paths[paths.length - 1]}`);
   };
 
   return (
@@ -135,7 +136,9 @@ export const Internet = () => {
             <button className="help">Usar Dica</button>
             <button className="skip">Pular Questão</button>
           </div>
-          <button className="save">Salvar Resposta</button>
+          <button className="save" onClick={handleFinishClass}>
+            Salvar Resposta
+          </button>
         </div>
       </div>
     </ClassContainer>
