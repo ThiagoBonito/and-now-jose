@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex: 1;
-  height: 100vh;
+  flex: 1 1 1;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -135,7 +134,7 @@ export const InfoContainer = styled.div`
   }
 
   img {
-    margin-top: 15%;
+    margin-top: 1.5rem;
     margin-left: 50%;
     width: 50%;
     height: 100%;
@@ -149,22 +148,6 @@ export const InfoContainer = styled.div`
     p {
       padding: 0 1.5rem;
       font-size: 0.75rem;
-    }
-  }
-
-  @media (max-width: 2560px) {
-    img {
-      margin-top: 35%;
-    }
-  }
-  @media (max-width: 1440px) {
-    img {
-      margin-top: 23%;
-    }
-  }
-  @media (max-width: 1024px) {
-    img {
-      margin-top: 27%;
     }
   }
 `;
