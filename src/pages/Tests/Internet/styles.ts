@@ -67,6 +67,13 @@ export const ClassContainer = styled.div`
       margin-top: 1rem;
       padding-bottom: 1rem;
 
+      button {
+        cursor: pointer;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+
       .helpButtons {
         display: flex;
         flex-direction: row;
