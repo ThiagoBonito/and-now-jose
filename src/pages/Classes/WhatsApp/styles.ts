@@ -53,6 +53,7 @@ export const ClassContainer = styled.div`
       justify-content: center;
       align-items: center;
       margin-top: 0.5rem;
+      padding-bottom: 1rem;
 
       button {
         background-color: ${(props) => props.theme["green-400"]};

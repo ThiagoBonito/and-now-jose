@@ -25,7 +25,6 @@ export const Seguranca = () => {
         <h2>Revisão do Módulo</h2>
         <ReviewCard
           module={"Seguranca"}
-          isModuleFinished={false}
           finishedClasses={3}
           totalClasses={9}
           backgroundColor={"blue-200"}

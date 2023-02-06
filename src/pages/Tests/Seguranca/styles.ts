@@ -36,12 +36,12 @@ export const ClassContainer = styled.div`
   .contentClass {
     display: flex;
     flex: 0.85;
-    height: 83vh;
+    height: 90vh;
     flex-direction: column;
     padding: 0 2rem;
 
     div:nth-child(1) {
-      height: 100vh;
+      height: 110vh;
       overflow: auto;
     }
     p {
@@ -65,6 +65,7 @@ export const ClassContainer = styled.div`
       flex-direction: row;
       justify-content: space-between;
       margin-top: 1rem;
+      padding-bottom: 1rem;
 
       .helpButtons {
         display: flex;

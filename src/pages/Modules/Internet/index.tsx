@@ -25,13 +25,12 @@ export const Internet = () => {
         <h2>Revisão do Módulo</h2>
         <ReviewCard
           module={"Internet"}
-          isModuleFinished={true}
-          finishedClasses={6}
+          finishedClasses={9}
           totalClasses={9}
           backgroundColor={"cyan-400"}
         />
         <h2>Aulas</h2>
-        <p>(6/9 aulas completas)</p>
+        <p>(9/9 aulas completas)</p>
         <ClassCard
           id={1}
           module={"Internet"}
