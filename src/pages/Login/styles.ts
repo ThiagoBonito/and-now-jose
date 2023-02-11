@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex: 1 1 1;
+  height: 100vh;
+  min-height: 100vh;
+  flex: 1;
+  overflow: hidden;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    overflow: scroll;
   }
 `;
 

@@ -78,7 +78,7 @@ export const ModuleCard = styled.div<ModuleCardProps>`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1031px) {
     .iconCard {
       width: fit-content;
       height: fit-content;

@@ -1,47 +1,51 @@
 import { ArrowRight, Globe, ShieldCheckered } from "phosphor-react";
 import { ModuleCard } from "./styles";
 import { defaultTheme } from "../../styles/themes/default";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
-export type IconType =
-  | {
-      type: "icon";
-      name: string;
-    }
-  | {
-      type: "image";
-      children: ReactNode;
-    };
+import LogoWhatsapp from "../../assets/logo-whatsapp-icon.svg";
+import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
 
 export type ModuleProps = {
   idModule: number;
-  icon: IconType;
   route: string;
   title: string;
-  color: keyof typeof defaultTheme;
   watchedClass: number;
   allClasses: number;
 };
 
 export const Module = ({
   idModule,
-  icon,
   route,
   title,
-  color,
   watchedClass,
   allClasses,
 }: ModuleProps) => {
   const navigate = useNavigate();
+  const { currentModule, setCurrentModule } = useContext(AndNowJoseContext);
+
+  const handleModule = () => {
+    setCurrentModule(route);
+    navigate(`/Home/Modules/${route}`);
+  };
+
   return (
-    <ModuleCard color={color} progress={(watchedClass / allClasses) * 100}>
+    <ModuleCard
+      color={
+        route == "WhatsApp"
+          ? "green-300"
+          : route == "Seguranca"
+          ? "blue-200"
+          : "cyan-400"
+      }
+      progress={(watchedClass / allClasses) * 100}
+    >
       <div className="backgroundCard">
         <div className="infoCard">
           <div className="iconCard">
-            {icon.type === "image" ? (
-              icon.children
-            ) : icon.name === "ShieldCheckered" ? (
+            {route === "WhatsApp" ? (
+              <img src={LogoWhatsapp} />
+            ) : route === "Seguranca" ? (
               <ShieldCheckered size={46} />
             ) : (
               <Globe size={46} />
@@ -53,7 +57,7 @@ export const Module = ({
           </div>
         </div>
         <div className="expandModule">
-          <button onClick={() => navigate(`/Home/Modules/${route}`)}>
+          <button onClick={handleModule}>
             <ArrowRight size={24} />
           </button>
         </div>

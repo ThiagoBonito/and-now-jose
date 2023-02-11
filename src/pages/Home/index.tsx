@@ -16,37 +16,22 @@ export const Home = () => {
   const modules: ModuleProps[] = [
     {
       idModule: 1,
-      icon: {
-        type: "image",
-        children: <img src={LogoWhatsapp} />,
-      },
       route: "WhatsApp",
       title: "Básico do WhatsApp",
-      color: "green-300",
       watchedClass: 6,
       allClasses: 9,
     },
     {
       idModule: 2,
-      icon: {
-        type: "icon",
-        name: "Globe",
-      },
       route: "Internet",
       title: "Navegação na Internet",
-      color: "cyan-400",
       watchedClass: 3,
       allClasses: 18,
     },
     {
       idModule: 3,
-      icon: {
-        type: "icon",
-        name: "ShieldCheckered",
-      },
       route: "Seguranca",
       title: "Segurança na Rede",
-      color: "blue-200",
       watchedClass: 0,
       allClasses: 18,
     },
