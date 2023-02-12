@@ -166,3 +166,10 @@ export const User = styled.div<UserProps>`
     border-radius: 50%;
   }
 `;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex: 0.85;
+  justify-content: center;
+  align-items: center;
+`;

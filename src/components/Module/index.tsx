@@ -7,19 +7,20 @@ import LogoWhatsapp from "../../assets/logo-whatsapp-icon.svg";
 import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
 
 export type ModuleProps = {
-  idModule: number;
+  id: number;
+  name: string;
+  classeswatched: number;
+  allclasses: number;
+  email: string;
   route: string;
-  title: string;
-  watchedClass: number;
-  allClasses: number;
 };
 
 export const Module = ({
-  idModule,
+  id,
   route,
-  title,
-  watchedClass,
-  allClasses,
+  name,
+  classeswatched,
+  allclasses,
 }: ModuleProps) => {
   const navigate = useNavigate();
   const { currentModule, setCurrentModule } = useContext(AndNowJoseContext);
@@ -38,7 +39,7 @@ export const Module = ({
           ? "blue-200"
           : "cyan-400"
       }
-      progress={(watchedClass / allClasses) * 100}
+      progress={(classeswatched / allclasses) * 100}
     >
       <div className="backgroundCard">
         <div className="infoCard">
@@ -52,8 +53,8 @@ export const Module = ({
             )}
           </div>
           <div className="nameCard">
-            <h2>Módulo {idModule}</h2>
-            <h2 className="title">{title}</h2>
+            <h2>Módulo {id}</h2>
+            <h2 className="title">{name}</h2>
           </div>
         </div>
         <div className="expandModule">
@@ -67,7 +68,7 @@ export const Module = ({
           <div className="progress" />
         </div>
         <p>
-          {watchedClass}/{allClasses} Aulas Completas
+          {classeswatched}/{allclasses} Aulas Completas
         </p>
       </div>
     </ModuleCard>

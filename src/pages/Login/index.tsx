@@ -6,23 +6,29 @@ import {
 } from "./styles";
 import Logo from "../../assets/logo.jpeg";
 import OldManVector from "../../assets/old-man-vector.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { api } from "../../services/api";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState<string>("");
+
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleLogin = () => {
-    if (username === "ti@eagorajose.com" && password === "eagorajose") {
-      return navigate("/Home");
-    } else {
+  const handleLogin = async () => {
+    const { data } = await api.post("/login", {
+      auth: { email: email, password: password },
+    });
+    if (!data) {
       return toast.error("Usuário ou senha incorretas!", {
         position: toast.POSITION.TOP_RIGHT,
       });
+    } else {
+      localStorage.setItem("userEmail", email);
+      return navigate("/Home");
     }
   };
 
@@ -39,8 +45,8 @@ export const Login = () => {
           <input
             placeholder="Nome do usuário"
             type="email"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder="Digite sua senha"

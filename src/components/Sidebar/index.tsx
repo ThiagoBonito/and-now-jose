@@ -8,6 +8,11 @@ export const Sidebar = () => {
   const activePage = url.split("/");
   const navigate = useNavigate();
 
+  const handleExit = () => {
+    navigate("/");
+    localStorage.removeItem("userEmail");
+  };
+
   return (
     <SidebarContainer>
       <div className="content">
@@ -52,7 +57,7 @@ export const Sidebar = () => {
           </button>
         </div>
       </div>
-      <button className="exit" onClick={() => navigate("/")}>
+      <button className="exit" onClick={handleExit}>
         <SignOut size={24} color="#17191C" weight="bold" />
         <p>Sair</p>
       </button>
