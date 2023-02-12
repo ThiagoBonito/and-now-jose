@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
+import { CircularProgress } from "@mui/material";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -18,16 +19,22 @@ export const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleLogin = async () => {
+    setIsLoading(true);
     const { data } = await api.post("/login", {
       auth: { email: email, password: password },
     });
     if (!data) {
+      setIsLoading(false);
       return toast.error("Usuário ou senha incorretas!", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } else {
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("userFullName", data.name);
+      setIsLoading(false);
       return navigate("/Home");
     }
   };
@@ -58,8 +65,16 @@ export const Login = () => {
             <div>Lembrar senha</div>
             <a>Esqueci minha senha</a>
           </div>
-          <button className="login" onClick={handleLogin}>
-            Iniciar sessão
+          <button
+            className="login"
+            onClick={handleLogin}
+            disabled={!email || !password || isLoading}
+          >
+            {isLoading ? (
+              <CircularProgress color="inherit" size={24} />
+            ) : (
+              "Iniciar sessão"
+            )}
           </button>
           <ToastContainer />
           <div className="register">

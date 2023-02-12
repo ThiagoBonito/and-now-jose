@@ -66,6 +66,11 @@ export const LoginContainer = styled.div`
     border-radius: 8px;
     margin-bottom: 0.5rem;
     cursor: pointer;
+
+    :disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 
   .register {

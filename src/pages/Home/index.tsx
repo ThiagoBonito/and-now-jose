@@ -20,6 +20,7 @@ import { CircularProgress } from "@mui/material";
 
 export const Home = () => {
   const storedEmail = localStorage.getItem("userEmail");
+  const storedFullName = localStorage.getItem("userFullName");
 
   const [modules, setModules] = useState<ModuleProps[]>([]);
 
@@ -46,7 +47,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <Sidebar />
+      <Sidebar name={storedFullName ?? ""} />
       {isLoading ? (
         <LoadingContainer>
           <CircularProgress color="success" size={128} thickness={2} />

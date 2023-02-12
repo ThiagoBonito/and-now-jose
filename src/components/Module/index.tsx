@@ -23,10 +23,9 @@ export const Module = ({
   allclasses,
 }: ModuleProps) => {
   const navigate = useNavigate();
-  const { currentModule, setCurrentModule } = useContext(AndNowJoseContext);
 
   const handleModule = () => {
-    setCurrentModule(route);
+    localStorage.setItem("currentModule", route);
     navigate(`/Home/Modules/${route}`);
   };
 

@@ -44,6 +44,14 @@ export const ClassContainer = styled.div`
     }
   }
 
+  .loadingContainer {
+    display: flex;
+    flex: 0.85;
+    padding: 15%;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media (max-width: 425px) {
     flex-direction: column;
 

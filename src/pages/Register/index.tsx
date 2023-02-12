@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -14,8 +15,11 @@ export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleCreateUser = async () => {
     try {
+      setIsLoading(true);
       const { data } = await api.post("/register", {
         auth: {
           name: fullName,
@@ -29,10 +33,13 @@ export const Register = () => {
         auth: { email: email },
       });
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("userFullName", fullName);
+      setIsLoading(false);
       navigate("/Home");
     } catch (error) {
       console.log(error);
       toast.error("Ocorreu um erro ao criar o usuário");
+      setIsLoading(false);
     }
   };
 
@@ -78,10 +85,14 @@ export const Register = () => {
         />
         <button
           className="login"
-          disabled={!fullName || !email || !username || !password}
+          disabled={!fullName || !email || !username || !password || isLoading}
           onClick={handleCreateUser}
         >
-          Registrar-se
+          {isLoading ? (
+            <CircularProgress color="inherit" size={24} />
+          ) : (
+            "Registra-se"
+          )}
         </button>
       </RegisterContainer>
     </Container>
