@@ -43,7 +43,7 @@ export const WhatsApp = () => {
     });
     if (!data) {
       setIsLoading(false);
-      return toast.error("Erro ao trazer dados da Aula!", {
+      return toast.error("Erro ao trazer dados do Módulo!", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } else {

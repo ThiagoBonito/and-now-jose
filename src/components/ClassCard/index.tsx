@@ -19,6 +19,14 @@ export const ClassCard = ({
   backgroundColor,
 }: ClassCardProps) => {
   const navigate = useNavigate();
+
+  const handleClass = () => {
+    localStorage.setItem("currentClass", title);
+    console.log(title);
+    localStorage.setItem("currentClassIsFinished", isFinished.toString());
+    console.log(isFinished);
+    navigate(`/Home/Classes/${module}`);
+  };
   return (
     <ClassModule backgroundColor={backgroundColor}>
       <div className="contentClass">
@@ -35,13 +43,7 @@ export const ClassCard = ({
         </div>
       </div>
       <div className="goClass">
-        <button
-          onClick={() =>
-            isFinished
-              ? navigate(`/Home/Classes/${module}`)
-              : navigate(`/Home/Classes/${module}`)
-          }
-        >
+        <button onClick={handleClass}>
           {isFinished ? "Revisar" : "Iniciar"}
         </button>
       </div>
