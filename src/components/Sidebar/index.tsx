@@ -3,7 +3,11 @@ import EmptyPhoto from "../../assets/empty-photo-user.svg";
 import { SidebarContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-export const Sidebar = () => {
+type SidebarProps = {
+  name: string;
+};
+
+export const Sidebar = ({ name }: SidebarProps) => {
   const url = window.location.href;
   const activePage = url.split("/");
   const navigate = useNavigate();
@@ -18,7 +22,7 @@ export const Sidebar = () => {
       <div className="content">
         <div className="user">
           <img src={EmptyPhoto} />
-          <p>José</p>
+          <p>{name}</p>
         </div>
         <div className="buttons">
           <button
