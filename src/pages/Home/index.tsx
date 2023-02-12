@@ -47,7 +47,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <Sidebar name={storedFullName} />
+      <Sidebar />
       {isLoading ? (
         <LoadingContainer>
           <CircularProgress color="success" size={128} thickness={2} />
