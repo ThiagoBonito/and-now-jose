@@ -4,7 +4,7 @@ import { SidebarContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 type SidebarProps = {
-  name: string;
+  name: string | null;
 };
 
 export const Sidebar = ({ name }: SidebarProps) => {
@@ -22,7 +22,7 @@ export const Sidebar = ({ name }: SidebarProps) => {
       <div className="content">
         <div className="user">
           <img src={EmptyPhoto} />
-          <p>{name}</p>
+          <p>{name === null ? "" : name}</p>
         </div>
         <div className="buttons">
           <button
