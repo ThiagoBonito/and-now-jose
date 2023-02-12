@@ -23,7 +23,6 @@ export const Home = () => {
   const storedFullName = localStorage.getItem("userFullName");
 
   const [modules, setModules] = useState<ModuleProps[]>([]);
-  const [username, setUsername] = useState(storedFullName ?? "");
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -48,7 +47,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <Sidebar name={username} />
+      <Sidebar name={storedFullName ?? ""} />
       {isLoading ? (
         <LoadingContainer>
           <CircularProgress color="success" size={128} thickness={2} />
