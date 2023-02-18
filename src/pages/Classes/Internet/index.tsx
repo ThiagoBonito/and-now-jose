@@ -13,10 +13,14 @@ export const Internet = () => {
   const paths = url.split("/");
 
   const storedClass = localStorage.getItem("currentClass");
+  const storedEmail = localStorage.getItem("userEmail");
+  const storedModule = localStorage.getItem("currentModule");
   const storedStatusClass = localStorage.getItem("currentClassIsFinished");
+  const quantityClasses = localStorage.getItem("quantityClassesWatched");
 
   const [classData, setClassData] = useState<ClassDataProps>();
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingFinish, setIsLoadingFinish] = useState(false);
 
   const handleBackModulePage = () => {
     localStorage.removeItem("currentClass");
@@ -24,9 +28,15 @@ export const Internet = () => {
     navigate(`/Home/Modules/${paths[paths.length - 1]}`);
   };
 
-  const handleFinishClass = () => {
-    console.log("Finalizada!");
-    navigate(`/Home/Modules/${paths[paths.length - 1]}`);
+  const handleFinishClass = async () => {
+    if (storedStatusClass === "true") {
+      console.log("Revisada!");
+      navigate(`/Home/Modules/${paths[paths.length - 1]}`);
+    } else {
+      await fetchUpdateClassesFinished(Number(quantityClasses));
+      console.log("Finalizada!");
+      navigate(`/Home/Modules/${paths[paths.length - 1]}`);
+    }
   };
 
   const fetchData = async () => {
@@ -35,7 +45,6 @@ export const Internet = () => {
       auth: { title: storedClass },
     });
     if (data.length === 0) {
-      console.log(data);
       setIsLoading(false);
       return toast.error("Erro ao trazer dados da Aula!", {
         position: toast.POSITION.TOP_RIGHT,
@@ -43,6 +52,25 @@ export const Internet = () => {
     } else {
       setClassData(data[0]);
       setIsLoading(false);
+    }
+  };
+
+  const fetchUpdateClassesFinished = async (classeswatched: number) => {
+    setIsLoadingFinish(true);
+    if (classeswatched === 10) return;
+
+    const { data } = await api.put("/finishClass", {
+      auth: {
+        classesWatched: classeswatched + 1,
+        module: storedModule,
+        title: storedClass,
+        email: storedEmail,
+      },
+    });
+    if (!data) {
+      setIsLoadingFinish(false);
+    } else {
+      setIsLoadingFinish(false);
     }
   };
 
@@ -70,7 +98,13 @@ export const Internet = () => {
             <p>{classData?.description ?? ""}</p>
           </div>
           <div className="buttonFinished">
-            <button onClick={handleFinishClass}>Finalizar Aula</button>
+            <button onClick={handleFinishClass}>
+              {isLoadingFinish ? (
+                <CircularProgress color="inherit" size={24} thickness={2} />
+              ) : (
+                "Finalizar Aula"
+              )}
+            </button>
           </div>
         </div>
       )}

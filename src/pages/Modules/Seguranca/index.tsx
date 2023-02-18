@@ -20,6 +20,7 @@ export const Seguranca = () => {
 
   const handleLeaveModule = () => {
     localStorage.removeItem("currentModule");
+    localStorage.removeItem("quantityClassesWatched");
     navigate("/Home");
   };
 
@@ -35,6 +36,10 @@ export const Seguranca = () => {
       });
     } else {
       setModuleData(data[0]);
+      localStorage.setItem(
+        "quantityClassesWatched",
+        String(data[0].classeswatched)
+      );
       setIsLoading(false);
     }
   };
@@ -57,7 +62,7 @@ export const Seguranca = () => {
         </div>
       ) : (
         <div className="contentClass">
-          <h5>Módulo 1</h5>
+          <h5>Módulo 3</h5>
           <h2>Segurança na Rede</h2>
           <p>
             Olá Aluno! Bem vindo ao módulo Básico do WhatsApp, onde, neste

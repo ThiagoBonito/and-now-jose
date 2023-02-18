@@ -33,6 +33,7 @@ export const WhatsApp = () => {
 
   const handleLeaveModule = () => {
     localStorage.removeItem("currentModule");
+    localStorage.removeItem("quantityClassesWatched");
     navigate("/Home");
   };
 
@@ -48,6 +49,10 @@ export const WhatsApp = () => {
       });
     } else {
       setModuleData(data[0]);
+      localStorage.setItem(
+        "quantityClassesWatched",
+        String(data[0].classeswatched)
+      );
       setIsLoading(false);
     }
   };
