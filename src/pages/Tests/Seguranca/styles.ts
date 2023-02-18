@@ -40,6 +40,13 @@ export const ClassContainer = styled.div`
     flex-direction: column;
     padding: 0 2rem;
 
+    .isloading {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
     div:nth-child(1) {
       height: 110vh;
       overflow: auto;

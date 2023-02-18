@@ -19,7 +19,7 @@ export const WhatsApp = () => {
         </p>
         <button
           className="button"
-          onClick={() => navigate("/Home/Modules/Internet")}
+          onClick={() => navigate("/Home/Modules/WhatsApp")}
         >
           Retornar ao Módulo
         </button>

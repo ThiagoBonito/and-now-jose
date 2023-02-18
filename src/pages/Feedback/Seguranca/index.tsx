@@ -19,7 +19,7 @@ export const Seguranca = () => {
         </p>
         <button
           className="button"
-          onClick={() => navigate("/Home/Modules/Internet")}
+          onClick={() => navigate("/Home/Modules/Seguranca")}
         >
           Retornar ao Módulo
         </button>

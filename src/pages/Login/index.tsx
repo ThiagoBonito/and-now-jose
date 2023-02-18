@@ -65,11 +65,7 @@ export const Login = () => {
             <div>Lembrar senha</div>
             <a>Esqueci minha senha</a>
           </div>
-          <button
-            className="login"
-            onClick={handleLogin}
-            disabled={!email || !password || isLoading}
-          >
+          <button className="login" onClick={handleLogin} disabled={isLoading}>
             {isLoading ? (
               <CircularProgress color="inherit" size={24} />
             ) : (
