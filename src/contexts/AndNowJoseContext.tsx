@@ -1,10 +1,8 @@
 import { createContext, ReactNode, useState } from "react";
 
 interface AndNowJoseContextType {
-  currentModule: string;
-  setCurrentModule: (module: string) => void;
-  currentWatchedClasses: number;
-  setCurrentWatchedClasses: (watched: number) => void;
+  correctAnswers: number;
+  setCorrectAnswer: (quantity: number) => void;
 }
 
 export const AndNowJoseContext = createContext({} as AndNowJoseContextType);
@@ -16,19 +14,10 @@ interface AndNowJoseContextProviderProps {
 export const AndNowJoseContextProvider = ({
   children,
 }: AndNowJoseContextProviderProps) => {
-  const [currentModule, setCurrentModule] = useState("");
-
-  const [currentWatchedClasses, setCurrentWatchedClasses] = useState(0);
+  const [correctAnswers, setCorrectAnswer] = useState<number>(0);
 
   return (
-    <AndNowJoseContext.Provider
-      value={{
-        currentModule,
-        setCurrentModule,
-        currentWatchedClasses,
-        setCurrentWatchedClasses,
-      }}
-    >
+    <AndNowJoseContext.Provider value={{ correctAnswers, setCorrectAnswer }}>
       {children}
     </AndNowJoseContext.Provider>
   );

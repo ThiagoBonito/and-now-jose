@@ -2,7 +2,7 @@ import { Container, InfoContainer, RegisterContainer } from "./styles";
 import CellphoneImage from "../../assets/cellphone-vector.svg";
 import { ArrowLeft } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";

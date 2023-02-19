@@ -6,7 +6,7 @@ import {
 } from "./styles";
 import Logo from "../../assets/logo.jpeg";
 import OldManVector from "../../assets/old-man-vector.svg";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

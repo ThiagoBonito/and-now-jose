@@ -1,10 +1,7 @@
 import { ArrowRight, Globe, ShieldCheckered } from "phosphor-react";
 import { ModuleCard } from "./styles";
-import { defaultTheme } from "../../styles/themes/default";
-import { ReactNode, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoWhatsapp from "../../assets/logo-whatsapp-icon.svg";
-import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
 
 export type ModuleProps = {
   id: number;
