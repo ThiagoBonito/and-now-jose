@@ -4,13 +4,17 @@ import { ClassContainer } from "./styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TestDataProps } from "../WhatsApp";
 import { api } from "../../../services/api";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import { AndNowJoseContext } from "../../../contexts/AndNowJoseContext";
 
 export const Internet = () => {
+  const { addCorrectAnswer, resetCorrectAnswer } =
+    useContext(AndNowJoseContext);
+
   const navigate = useNavigate();
   const url = window.location.href;
   const paths = url.split("/");
@@ -22,6 +26,8 @@ export const Internet = () => {
   const [testData, setTestData] = useState<TestDataProps>();
 
   const [currentEtapa, setCurrentEtapa] = useState<number>(0);
+
+  const [currentAnswer, setCurrentAnswer] = useState(false);
 
   const [option1, setOption1] = useState(false);
   const [option2, setOption2] = useState(false);
@@ -58,12 +64,13 @@ export const Internet = () => {
   };
 
   const checkIsCorrect = (value: string) => {
-    console.log(value);
     const isCorrect = testData?.questions[currentEtapa]?.answer.value === value;
 
     if (isCorrect) {
+      setCurrentAnswer(true);
       console.log("Correta");
     } else {
+      setCurrentAnswer(false);
       console.log("Errado");
     }
   };
@@ -85,6 +92,10 @@ export const Internet = () => {
   };
 
   const handleFinishClass = () => {
+    if (currentAnswer) {
+      addCorrectAnswer();
+    }
+
     if (testData?.questions[currentEtapa + 1]) {
       setCurrentEtapa((prev) => prev + 1);
     } else {
@@ -96,6 +107,7 @@ export const Internet = () => {
   useEffect(() => {
     setCurrentEtapa(0);
     fetchTestData();
+    resetCorrectAnswer();
   }, []);
 
   useEffect(() => {
