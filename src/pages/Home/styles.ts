@@ -7,17 +7,25 @@ type UserProps = {
 
 export const HomeContainer = styled.div`
   display: flex;
+  height: 100vh;
   flex: 1;
   gap: 2rem;
+  margin-top: 5.5rem;
+  margin-left: 16%;
   @media (max-width: 425px) {
     flex-direction: column;
     padding: 0 2rem;
+    margin-left: 0 !important;
+  }
+  @media (max-width: 768px) {
+    margin-left: 25%;
   }
 `;
 
 export const ModulesContainer = styled.div`
   display: flex;
-  flex: 0.5;
+  flex: 0.65 !important;
+
   flex-direction: column;
   margin-top: 1.5rem;
 
@@ -34,13 +42,13 @@ export const ModulesContainer = styled.div`
     flex: 0.5;
   }
   @media (max-width: 768px) {
-    flex: 0.8;
+    flex: 0.9 !important;
   }
 `;
 
 export const RankingsContainer = styled.div`
   display: flex;
-  flex: 0.35;
+  flex: 0.35 !important;
   flex-direction: column;
   margin-top: 1.5rem;
   height: fit-content;

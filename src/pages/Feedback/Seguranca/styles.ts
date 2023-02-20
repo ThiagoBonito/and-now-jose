@@ -4,6 +4,7 @@ export const FeedbackContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  margin-top: 5.5rem;
 
   .feedback {
     display: flex;

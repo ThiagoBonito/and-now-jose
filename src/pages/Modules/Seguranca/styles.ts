@@ -4,7 +4,7 @@ export const ClassContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
-  margin-top: 1rem;
+  margin-top: 6.5rem;
 
   .backPage {
     display: flex;

@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  margin-top: 5rem;
+  background-color: ${(props) => props.theme["white"]};
   display: flex;
-  flex: 0.15;
   flex-direction: column;
-  height: 80vh !important;
   align-items: center;
   padding-top: 1.5rem;
+  z-index: 1;
 
   .content {
     height: 90% !important;
@@ -81,7 +87,9 @@ export const SidebarContainer = styled.div`
   }
 
   @media (max-width: 425px) {
+    position: relative;
     flex-direction: column;
+    width: fit-content;
 
     .content {
       display: flex;
@@ -94,6 +102,11 @@ export const SidebarContainer = styled.div`
     }
     .user {
       flex: 1;
+
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
     }
     .exit {
       width: 100%;
