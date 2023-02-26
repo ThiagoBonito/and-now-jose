@@ -72,6 +72,7 @@ export const RankingsContainer = styled.div`
 
         div {
           display: flex;
+          flex: 0.7;
           align-items: center;
           gap: 0.5rem;
 
@@ -86,13 +87,16 @@ export const RankingsContainer = styled.div`
         }
         .rewards {
           display: flex;
-          flex: 1 !important;
+          flex: 0.3;
           align-items: center;
           justify-content: center;
 
           img {
             width: 3rem;
             height: 3rem;
+          }
+          p {
+            font-size: 0.75rem;
           }
         }
       }
@@ -101,6 +105,32 @@ export const RankingsContainer = styled.div`
         background-color: ${(props) => props.theme["green-300"]};
       }
     }
+  }
+  @media (max-width: 600px) {
+    .rankingCard {
+      margin: 0;
+
+      .user {
+        div {
+          p {
+            font-size: 0.75rem;
+          }
+        }
+
+        .rewards {
+          img {
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+          }
+          p {
+            font-size: 0.5rem !important;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 425px) {
+    margin: 0;
   }
 `;
 
@@ -116,8 +146,8 @@ export const User = styled.div<UserProps>`
   img {
     width: 40%;
     height: 60%;
-    padding: 0.5rem;
-    border: 8px solid ${(props) => props.theme[`${props.color}`]};
+    padding: 0.25rem;
+    border: 6px solid ${(props) => props.theme[`${props.color}`]};
     border-radius: 50%;
   }
   div {
@@ -129,6 +159,29 @@ export const User = styled.div<UserProps>`
       height: 4rem;
       border: none;
       border-radius: 0;
+    }
+  }
+
+  @media (max-width: 960px) {
+    img {
+      width: 40%;
+      height: 60%;
+      padding: 0.1rem;
+      border: 4px solid ${(props) => props.theme[`${props.color}`]};
+    }
+    div {
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    img {
+      width: 40%;
+      height: 40%;
+      padding: 0.1rem;
+      border: 4px solid ${(props) => props.theme[`${props.color}`]};
     }
   }
 `;

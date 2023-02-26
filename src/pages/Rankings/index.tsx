@@ -76,9 +76,7 @@ export const Rankings = () => {
                 <p>Lucas Amorim</p>
               </div>
               <div className="rewards">
-                <p style={{ fontWeight: "normal", fontSize: "1rem" }}>
-                  Nenhum Emblema Encontrado
-                </p>
+                <p>Nenhum Emblema Encontrado</p>
               </div>
             </div>
           </div>
