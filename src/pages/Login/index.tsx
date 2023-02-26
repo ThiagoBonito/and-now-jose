@@ -22,20 +22,21 @@ export const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleLogin = async () => {
-    setIsLoading(true);
-    const { data } = await api.post("/login", {
-      auth: { email: email, password: password },
-    });
-    if (!data) {
+    try {
+      setIsLoading(true);
+      const { data } = await api.post("/login", {
+        auth: { email: email, password: password },
+      });
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userFullName", data.name);
+      setIsLoading(false);
+      navigate("/Home");
+    } catch (error) {
+      console.error(error);
       setIsLoading(false);
       return toast.error("Usuário ou senha incorretas!", {
         position: toast.POSITION.TOP_RIGHT,
       });
-    } else {
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userFullName", data.name);
-      setIsLoading(false);
-      return navigate("/Home");
     }
   };
 

@@ -38,8 +38,10 @@ export const Register = () => {
       navigate("/Home");
     } catch (error) {
       console.log(error);
-      toast.error("Ocorreu um erro ao criar o usuário");
       setIsLoading(false);
+      return toast.error("Ocorreu um erro ao criar o usuário", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
