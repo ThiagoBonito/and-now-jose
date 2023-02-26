@@ -44,6 +44,9 @@ export const ModulesContainer = styled.div`
   @media (max-width: 768px) {
     flex: 0.9 !important;
   }
+  @media (max-width: 425px) {
+    margin-top: 0;
+  }
 `;
 
 export const RankingsContainer = styled.div`
