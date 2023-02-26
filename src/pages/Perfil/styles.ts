@@ -9,5 +9,6 @@ export const PerfilContainer = styled.div`
   @media (max-width: 425px) {
     flex-direction: column;
     padding: 0 2rem;
+    margin: 0.25rem 0 0 0;
   }
 `;

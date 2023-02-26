@@ -14,7 +14,7 @@ export const RankingContainer = styled.div`
   @media (max-width: 425px) {
     flex-direction: column;
     padding: 0 2rem;
-    margin-left: 0;
+    margin: 0.25rem 0 0 0;
   }
 `;
 

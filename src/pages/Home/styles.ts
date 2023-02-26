@@ -15,7 +15,7 @@ export const HomeContainer = styled.div`
   @media (max-width: 425px) {
     flex-direction: column;
     padding: 0 2rem;
-    margin-left: 0 !important;
+    margin: 0.25rem 0 0 0 !important;
   }
   @media (max-width: 768px) {
     margin-left: 25%;
