@@ -5,10 +5,15 @@ import AmorimPhoto from "../../assets/amorim.jpg";
 import GoldWhatsApp from "../../assets/whatsapp-gold.svg";
 
 import { Trophy } from "phosphor-react";
+import { useMediaQuery } from "react-responsive";
 
 export const Rankings = () => {
   const storedEmail = localStorage.getItem("userEmail");
   const storedFullName = localStorage.getItem("userFullName");
+
+  const matches = useMediaQuery({
+    query: "(max-width: 920px)",
+  });
 
   return (
     <RankingContainer>
@@ -20,7 +25,11 @@ export const Rankings = () => {
             <div className="users">
               <User color={"silver-500"}>
                 <img src={AmorimPhoto} />
-                <Trophy size={42} color={"#ABB1BA"} weight="bold" />
+                <Trophy
+                  size={matches ? 22 : 42}
+                  color={"#ABB1BA"}
+                  weight="bold"
+                />
                 <div>
                   <img src={GoldWhatsApp} />
                   <img src={GoldWhatsApp} />
@@ -29,7 +38,11 @@ export const Rankings = () => {
               </User>
               <User color={"gold-500"}>
                 <img src={AmorimPhoto} />
-                <Trophy size={42} color={"#FFAD33"} weight="bold" />
+                <Trophy
+                  size={matches ? 22 : 42}
+                  color={"#FFAD33"}
+                  weight="bold"
+                />
                 <div>
                   <img src={GoldWhatsApp} />
                   <img src={GoldWhatsApp} />
@@ -38,7 +51,11 @@ export const Rankings = () => {
               </User>
               <User color={"cooper-500"}>
                 <img src={AmorimPhoto} />
-                <Trophy size={42} color={"#CD7F32"} weight="bold" />
+                <Trophy
+                  size={matches ? 22 : 42}
+                  color={"#CD7F32"}
+                  weight="bold"
+                />
                 <div>
                   <img src={GoldWhatsApp} />
                   <img src={GoldWhatsApp} />
