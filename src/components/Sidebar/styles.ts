@@ -79,6 +79,7 @@ export const SidebarContainer = styled.div`
     color: ${(props) => props.theme["black-300"]};
     cursor: pointer;
     padding: 0.5rem;
+    margin-bottom: 2rem;
     border-radius: 8px;
     border: none;
 
@@ -111,6 +112,7 @@ export const SidebarContainer = styled.div`
     }
     .exit {
       width: 100%;
+      margin-bottom: 0;
     }
   }
 `;
