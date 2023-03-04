@@ -28,6 +28,7 @@ export const Login = () => {
         auth: { email: email, password: password },
       });
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPhoto", String(data.image));
       localStorage.setItem("userFullName", data.name);
       setIsLoading(false);
       navigate("/Home");

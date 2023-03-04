@@ -29,8 +29,9 @@ export const SidebarContainer = styled.div`
     margin-bottom: 1rem;
 
     img {
-      width: 20%;
-      height: 20%;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
     }
     p {
       font-size: 1rem;

@@ -1,5 +1,5 @@
 import { Books, SignOut, Trophy, User } from "phosphor-react";
-import EmptyPhoto from "../../assets/empty-photo-user.svg";
+import EmptyPhoto from "../../assets/empty-user-photo.png";
 import { SidebarContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,8 @@ export const Sidebar = ({ name }: SidebarProps) => {
   const activePage = url.split("/");
   const navigate = useNavigate();
 
+  const storedPhoto = localStorage.getItem("userPhoto");
+
   const handleExit = () => {
     navigate("/");
     localStorage.removeItem("userEmail");
@@ -21,7 +23,7 @@ export const Sidebar = ({ name }: SidebarProps) => {
     <SidebarContainer>
       <div className="content">
         <div className="user">
-          <img src={EmptyPhoto} />
+          <img src={storedPhoto === "null" ? EmptyPhoto : storedPhoto ?? ""} />
           <p>{name}</p>
         </div>
         <div className="buttons">

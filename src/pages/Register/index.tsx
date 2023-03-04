@@ -33,6 +33,7 @@ export const Register = () => {
         auth: { email: email },
       });
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPhoto", "null");
       localStorage.setItem("userFullName", fullName);
       setIsLoading(false);
       navigate("/Home");
