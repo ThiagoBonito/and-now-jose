@@ -143,7 +143,7 @@ export const InfoContainer = styled.div`
   }
 
   img {
-    margin-top: 1.5rem;
+    margin-top: 10vh;
     margin-left: 50%;
     width: 50%;
     height: 100%;
