@@ -159,4 +159,9 @@ export const InfoContainer = styled.div`
       font-size: 0.75rem;
     }
   }
+  @media (max-width: 1440px) {
+    img {
+      margin-top: 15vh;
+    }
+  }
 `;
