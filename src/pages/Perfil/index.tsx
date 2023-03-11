@@ -117,7 +117,9 @@ export const Perfil = () => {
                   <div className="statsUser">
                     <Medal size={24} color={"#454B54"} weight="bold" />
                     <p>
-                      Ranking Atual <b>#{userPositionRanking}</b>
+                      {userPositionRanking !== 0
+                        ? `Ranking Atual #${userPositionRanking}`
+                        : "Nenhuma posição alcançada"}
                     </p>
                   </div>
                   <div className="statsUser">
