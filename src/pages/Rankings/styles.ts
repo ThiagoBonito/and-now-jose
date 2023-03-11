@@ -181,3 +181,11 @@ export const User = styled.div<UserProps>`
     }
   }
 `;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex: 0.85;
+  margin: 20% 2rem 0 2rem;
+  justify-content: center;
+  align-items: center;
+`;

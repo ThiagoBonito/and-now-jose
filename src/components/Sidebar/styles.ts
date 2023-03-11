@@ -26,7 +26,7 @@ export const SidebarContainer = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 
     img {
       width: 2rem;
