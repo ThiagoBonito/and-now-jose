@@ -1,10 +1,12 @@
 import { createContext, ReactNode, useState } from "react";
+import GoldWhatsApp from "../assets/whatsapp-gold.svg";
 
 interface AndNowJoseContextType {
   correctAnswers: number;
   addCorrectAnswer: () => void;
   resetCorrectAnswer: () => void;
   handleUserRanking: (quantityCorrect: number) => number | undefined;
+  handleUserEmblem: (module: string, ranking: number) => string;
 }
 
 export const AndNowJoseContext = createContext({} as AndNowJoseContextType);
@@ -40,6 +42,50 @@ export const AndNowJoseContextProvider = ({
     }
   };
 
+  const handleUserEmblem = (module: string, ranking: number): string => {
+    if (module === "WhatsApp") {
+      switch (ranking) {
+        case 1:
+          return GoldWhatsApp;
+        case 2:
+          return GoldWhatsApp;
+        case 3:
+          return GoldWhatsApp;
+        case 4:
+          return GoldWhatsApp;
+        case 5:
+          return GoldWhatsApp;
+      }
+    } else if (module === "Internet") {
+      switch (ranking) {
+        case 1:
+          return GoldWhatsApp;
+        case 2:
+          return GoldWhatsApp;
+        case 3:
+          return GoldWhatsApp;
+        case 4:
+          return GoldWhatsApp;
+        case 5:
+          return GoldWhatsApp;
+      }
+    } else if (module === "Seguranca") {
+      switch (ranking) {
+        case 1:
+          return GoldWhatsApp;
+        case 2:
+          return GoldWhatsApp;
+        case 3:
+          return GoldWhatsApp;
+        case 4:
+          return GoldWhatsApp;
+        case 5:
+          return GoldWhatsApp;
+      }
+    }
+    return "";
+  };
+
   return (
     <AndNowJoseContext.Provider
       value={{
@@ -47,6 +93,7 @@ export const AndNowJoseContextProvider = ({
         addCorrectAnswer,
         resetCorrectAnswer,
         handleUserRanking,
+        handleUserEmblem,
       }}
     >
       {children}

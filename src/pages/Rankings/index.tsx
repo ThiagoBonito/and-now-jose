@@ -14,8 +14,9 @@ import { Trophy } from "phosphor-react";
 import { useMediaQuery } from "react-responsive";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
+import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
 
 export type DataRanking = {
   email: string;
@@ -34,6 +35,8 @@ export type RankingsResponse = {
 export const Rankings = () => {
   const storedEmail = localStorage.getItem("userEmail");
   const storedFullName = localStorage.getItem("userFullName");
+
+  const { handleUserEmblem } = useContext(AndNowJoseContext);
 
   const matches = useMediaQuery({
     query: "(max-width: 920px)",
@@ -106,9 +109,12 @@ export const Rankings = () => {
                   />
                   <p style={{ fontWeight: "bold" }}>{rankings[1]?.name}</p>
                   <div>
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
+                    {rankings[1]?.data?.map((info) => (
+                      <img
+                        key={info.module}
+                        src={handleUserEmblem(info.module, info.ranking)}
+                      />
+                    ))}
                   </div>
                 </User>
                 <User color={"gold-500"}>
@@ -120,9 +126,12 @@ export const Rankings = () => {
                   />
                   <p style={{ fontWeight: "bold" }}>{rankings[0]?.name}</p>
                   <div>
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
+                    {rankings[0]?.data?.map((info) => (
+                      <img
+                        key={info.module}
+                        src={handleUserEmblem(info.module, info.ranking)}
+                      />
+                    ))}
                   </div>
                 </User>
                 <User color={"cooper-500"}>
@@ -134,9 +143,12 @@ export const Rankings = () => {
                   />
                   <p style={{ fontWeight: "bold" }}>{rankings[2]?.name}</p>
                   <div>
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
+                    {rankings[2]?.data?.map((info) => (
+                      <img
+                        key={info.module}
+                        src={handleUserEmblem(info.module, info.ranking)}
+                      />
+                    ))}
                   </div>
                 </User>
               </div>
@@ -150,8 +162,12 @@ export const Rankings = () => {
                     <p>{user?.name}</p>
                   </div>
                   <div className="rewards">
-                    <img src={GoldWhatsApp} />
-                    <img src={GoldWhatsApp} />
+                    {user?.data?.map((info) => (
+                      <img
+                        key={info.module}
+                        src={handleUserEmblem(info.module, info.ranking)}
+                      />
+                    ))}
                   </div>
                 </div>
               ))}
