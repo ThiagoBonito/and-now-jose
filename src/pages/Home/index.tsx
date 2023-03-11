@@ -1,21 +1,15 @@
-import {
-  HomeContainer,
-  LoadingContainer,
-  ModulesContainer,
-  RankingsContainer,
-  User,
-} from "./styles";
+import { HomeContainer, LoadingContainer, ModulesContainer } from "./styles";
 import { Sidebar } from "../../components/Sidebar";
 import { Module } from "../../components/Module";
-import EmptySymbol from "../../assets/symbol-empty.svg";
+
 import { ModuleProps } from "../../components/Module";
-import LogoWhatsapp from "../../assets/logo-whatsapp-icon.svg";
-import AmorimPhoto from "../../assets/amorim.jpg";
-import { Trophy } from "phosphor-react";
+
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import { RankingsResponse } from "../Rankings";
+import { StatsCard } from "../../components/StatsCard";
 
 export const Home = () => {
   const storedEmail = localStorage.getItem("userEmail");
@@ -23,7 +17,43 @@ export const Home = () => {
 
   const [modules, setModules] = useState<ModuleProps[]>([]);
 
+  const [ranking, setRanking] = useState<RankingsResponse[]>([]);
+
   const [isLoading, setIsLoading] = useState(false);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const res = await Promise.all([
+        api.post("/modules", {
+          auth: { email: storedEmail },
+        }),
+        api.get("/rankings/0"),
+      ]);
+      const data = res.map((res) => res.data);
+
+      // data[0] === modulesData
+      if (!data[0]) {
+        return toast.error("Erro ao trazer os Módulos!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        setModules(data[0]);
+      }
+
+      // data[1] === rankingData
+      if (!data[1]) {
+        return toast.error("Erro ao trazer os Rankings!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        setRanking(data[1]);
+      }
+    } catch {
+      throw Error("Promise failed");
+    }
+    setIsLoading(false);
+  };
 
   const fetchModules = async () => {
     setIsLoading(true);
@@ -41,7 +71,7 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    fetchModules();
+    fetchData();
   }, []);
 
   return (
@@ -67,64 +97,7 @@ export const Home = () => {
               />
             ))}
           </ModulesContainer>
-          <RankingsContainer>
-            <div className="symbolCard">
-              <h1>Emblemas</h1>
-              <img src={EmptySymbol} />
-              <p>Nenhum emblema encontrado!</p>
-            </div>
-            <div className="rankingCard">
-              <h1>Ranking</h1>
-              <div className="topUsers">
-                <div className="users">
-                  <User color={"silver-500"}>
-                    <img src={AmorimPhoto} />
-                    <Trophy size={24} color={"#ABB1BA"} weight="bold" />
-                    <h5>Lucas Amorim</h5>
-                    <h6>5/6 Emblemas</h6>
-                  </User>
-                  <User color={"gold-500"}>
-                    <img src={AmorimPhoto} />
-                    <Trophy size={24} color={"#FFAD33"} weight="bold" />
-                    <h5>Lucas Amorim</h5>
-                    <h6>6/6 Emblemas</h6>
-                  </User>
-                  <User color={"cooper-500"}>
-                    <img src={AmorimPhoto} />
-                    <Trophy size={24} color={"#CD7F32"} weight="bold" />
-                    <h5>Lucas Amorim</h5>
-                    <h6>5/6 Emblemas</h6>
-                  </User>
-                </div>
-              </div>
-              <div className="restUsers">
-                <div className="user">
-                  <p>#4</p>
-                  <div>
-                    <img src={AmorimPhoto} />
-                    <p>Lucas Amorim</p>
-                  </div>
-                  <p style={{ fontWeight: "normal", fontSize: "1rem" }}>4/6</p>
-                </div>
-                <div className="user">
-                  <p>#5</p>
-                  <div>
-                    <img src={AmorimPhoto} />
-                    <p>Lucas Amorim</p>
-                  </div>
-                  <p style={{ fontWeight: "normal", fontSize: "1rem" }}>4/6</p>
-                </div>
-                <div className="user">
-                  <p>#38</p>
-                  <div>
-                    <img src={AmorimPhoto} />
-                    <p>Lucas Amorim</p>
-                  </div>
-                  <p style={{ fontWeight: "normal", fontSize: "1rem" }}>4/6</p>
-                </div>
-              </div>
-            </div>
-          </RankingsContainer>
+          <StatsCard data={ranking} />
         </>
       )}
     </HomeContainer>

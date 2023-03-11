@@ -100,10 +100,6 @@ export const RankingsContainer = styled.div`
           }
         }
       }
-
-      .user:nth-child(3) {
-        background-color: ${(props) => props.theme["green-300"]};
-      }
     }
   }
   @media (max-width: 600px) {
