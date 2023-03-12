@@ -96,7 +96,11 @@ export const StatsCard = ({ data }: StatsCardProps) => {
             <div>
               <button
                 className="arrow-left"
-                onClick={() => setCurrentPhoto((prev) => prev - 1)}
+                onClick={() =>
+                  currentPhoto === 0
+                    ? null
+                    : setCurrentPhoto((prev) => prev - 1)
+                }
               >
                 <ArrowLeft size={20} />
               </button>
@@ -119,7 +123,11 @@ export const StatsCard = ({ data }: StatsCardProps) => {
             <div>
               <button
                 className="arrow-right"
-                onClick={() => setCurrentPhoto((prev) => prev + 1)}
+                onClick={() =>
+                  currentPhoto + 1 >= sliderPhotos.length
+                    ? null
+                    : setCurrentPhoto((prev) => prev + 1)
+                }
               >
                 <ArrowRight size={20} />
               </button>
