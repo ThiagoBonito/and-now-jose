@@ -48,6 +48,8 @@ export const StatsCard = ({ data }: StatsCardProps) => {
   };
 
   const handleGetUserEmblems = () => {
+    setSliderPhotos([]);
+
     currentUserRanking?.data.map((emblem) => {
       const emblemPhoto = handleUserEmblem(emblem.module, emblem.ranking);
       const moduleName = emblem.module;
