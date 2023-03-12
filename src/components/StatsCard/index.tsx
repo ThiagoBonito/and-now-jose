@@ -1,16 +1,32 @@
 import EmptySymbol from "../../assets/symbol-empty.svg";
 import EmptyPhoto from "../../assets/empty-user-photo.png";
-import { Trophy } from "phosphor-react";
+import { ArrowLeft, ArrowRight, Circle, Trophy } from "phosphor-react";
 import { RankingsContainer, User } from "./styles";
 import { RankingsResponse } from "../../pages/Rankings";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
 
 type StatsCardProps = {
   data: RankingsResponse[];
 };
 
+type SliderPhotos = {
+  url: string;
+  name: string;
+};
+
 export const StatsCard = ({ data }: StatsCardProps) => {
+  const storedEmail = localStorage.getItem("userEmail");
+
+  const { handleUserEmblem } = useContext(AndNowJoseContext);
+
   const [restUsers, setRestUsers] = useState<RankingsResponse[]>([]);
+
+  const [currentUserRanking, setCurrentUserRanking] =
+    useState<RankingsResponse>();
+
+  const [sliderPhotos, setSliderPhotos] = useState<SliderPhotos[]>([]);
+  const [currentPhoto, setCurrentPhoto] = useState<number>(0);
 
   const handleRestUsers = () => {
     data.forEach((user, index) => {
@@ -22,16 +38,94 @@ export const StatsCard = ({ data }: StatsCardProps) => {
     });
   };
 
+  const handleFindCurrentUser = () => {
+    const user = data.find(
+      (user) => String(user.data[0].email) === String(storedEmail)
+    );
+    if (user) {
+      setCurrentUserRanking(user);
+    }
+  };
+
+  const handleGetUserEmblems = () => {
+    currentUserRanking?.data.map((emblem) => {
+      const emblemPhoto = handleUserEmblem(emblem.module, emblem.ranking);
+      const moduleName = emblem.module;
+
+      setSliderPhotos((prev) => [
+        ...prev,
+        { url: emblemPhoto, name: moduleName },
+      ]);
+    });
+  };
+
+  const handleCorrectNameModule = (module: string) => {
+    if (module === "WhatsApp") {
+      return "Básico do WhatsApp";
+    } else if (module === "Internet") {
+      return "Navegação na Internet";
+    } else if (module === "Seguranca") {
+      return "Segurança na Rede";
+    }
+  };
+
   useEffect(() => {
     handleRestUsers();
+    handleFindCurrentUser();
+    setSliderPhotos([]);
   }, [data]);
 
+  useEffect(() => {
+    handleGetUserEmblems();
+  }, [currentUserRanking]);
+
   return (
-    <RankingsContainer>
+    <RankingsContainer
+      currentSlide={currentPhoto}
+      slideLength={sliderPhotos.length}
+    >
       <div className="symbolCard">
         <h1>Emblemas</h1>
-        <img src={EmptySymbol} />
-        <p>Nenhum emblema encontrado!</p>
+        {sliderPhotos.length === 0 ? (
+          <>
+            <img src={EmptySymbol} />
+            <p>Nenhum emblema encontrado!</p>
+          </>
+        ) : (
+          <div className="slider-container">
+            <div>
+              <button
+                className="arrow-left"
+                onClick={() => setCurrentPhoto((prev) => prev - 1)}
+              >
+                <ArrowLeft size={20} />
+              </button>
+            </div>
+            <div className="photo">
+              <img src={sliderPhotos[currentPhoto].url} />
+              <p>{handleCorrectNameModule(sliderPhotos[currentPhoto].name)}</p>
+              <div className="footer">
+                {sliderPhotos.map((slide, index) => (
+                  <button onClick={() => setCurrentPhoto(index)}>
+                    <Circle
+                      size={8}
+                      weight={"fill"}
+                      color={index === currentPhoto ? "#00E272" : "#C7CBD1"}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <button
+                className="arrow-right"
+                onClick={() => setCurrentPhoto((prev) => prev + 1)}
+              >
+                <ArrowRight size={20} />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <div className="rankingCard">
         <h1>Ranking</h1>

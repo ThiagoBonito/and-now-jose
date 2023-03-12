@@ -5,7 +5,12 @@ type UserProps = {
   color: keyof typeof defaultTheme;
 };
 
-export const RankingsContainer = styled.div`
+type RankingsContainerProps = {
+  currentSlide: number;
+  slideLength: number;
+};
+
+export const RankingsContainer = styled.div<RankingsContainerProps>`
   display: flex;
   flex: 0.35 !important;
   flex-direction: column;
@@ -21,8 +26,9 @@ export const RankingsContainer = styled.div`
     align-items: center;
     border: 2px solid ${(props) => props.theme["black-300"]};
     margin: 1rem;
-    height: 35vh;
+    height: 35vh !important;
     border-radius: 8px;
+
     h1 {
       background-color: ${(props) => props.theme["white"]};
       position: absolute;
@@ -36,6 +42,66 @@ export const RankingsContainer = styled.div`
       height: 50%;
       margin-top: 0.75rem;
       margin-bottom: 0.5rem;
+    }
+    .slider-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 1rem;
+
+      .arrow-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        border-radius: 50%;
+        border: none;
+        background-color: ${(props) => props.theme["green-400"]};
+        cursor: pointer;
+        opacity: ${(props) => (props.currentSlide === 0 ? "0" : "1")};
+      }
+
+      .arrow-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        border-radius: 50%;
+        border: none;
+        background-color: ${(props) => props.theme["green-400"]};
+        cursor: pointer;
+        opacity: ${(props) =>
+          props.currentSlide + 1 === props.slideLength ? "0" : "1"};
+      }
+
+      .photo {
+        display: flex;
+        flex: 0.9;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .footer {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          margin-bottom: 0.5rem;
+
+          button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   .rankingCard {
