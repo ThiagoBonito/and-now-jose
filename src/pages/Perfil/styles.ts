@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
+type EmblemsContainerProps = {
+  emblemsQuantity: number;
+};
+
 export const PerfilContainer = styled.div`
   display: flex;
   flex: 1;
+  flex-direction: column;
   margin-top: 5.5rem;
   margin-left: 16%;
 
@@ -17,7 +22,7 @@ export const UserContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-left: 1.5rem;
+  margin: 0 0 2.5rem 1.5rem;
 
   h1 {
     margin: 1.5rem 0;
@@ -137,6 +142,34 @@ export const UserContainer = styled.div`
       .editUser {
         width: 100%;
         margin: 0;
+      }
+    }
+  }
+`;
+
+export const EmblemsContainer = styled.div<EmblemsContainerProps>`
+  h1 {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+
+  .cardEmblem {
+    display: grid;
+    grid-template-columns: ${(props) =>
+      props.emblemsQuantity && props.emblemsQuantity !== 1
+        ? `repeat(${props.emblemsQuantity}, 1fr)`
+        : `repeat(3, 1fr)`};
+    grid-gap: 1rem;
+
+    div {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 8rem;
       }
     }
   }
