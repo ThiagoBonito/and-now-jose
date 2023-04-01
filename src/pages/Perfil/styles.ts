@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-type EmblemsContainerProps = {
-  emblemsQuantity: number;
-};
-
 export const PerfilContainer = styled.div`
   display: flex;
   flex: 1;
@@ -147,7 +143,9 @@ export const UserContainer = styled.div`
   }
 `;
 
-export const EmblemsContainer = styled.div<EmblemsContainerProps>`
+export const EmblemsContainer = styled.div`
+  margin-bottom: 1rem;
+
   h1 {
     font-size: 1.15rem;
     margin-bottom: 2rem;
@@ -155,10 +153,7 @@ export const EmblemsContainer = styled.div<EmblemsContainerProps>`
 
   .cardEmblem {
     display: grid;
-    grid-template-columns: ${(props) =>
-      props.emblemsQuantity && props.emblemsQuantity !== 1
-        ? `repeat(${props.emblemsQuantity}, 1fr)`
-        : `repeat(3, 1fr)`};
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
 
     div {

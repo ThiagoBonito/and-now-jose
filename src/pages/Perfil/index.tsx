@@ -187,7 +187,7 @@ export const Perfil = () => {
               </button>
             </div>
           </UserContainer>
-          <EmblemsContainer emblemsQuantity={userEmblems.length}>
+          <EmblemsContainer>
             <h1>Emblemas</h1>
             <div className="cardEmblem">
               {userEmblems.map((emblem) => (

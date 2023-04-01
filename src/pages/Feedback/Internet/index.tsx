@@ -2,12 +2,16 @@ import { FeedbackContainer } from "./styles";
 import FeedbackPhoto from "../../../assets/feedback-platina.svg";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { AndNowJoseContext } from "../../../contexts/AndNowJoseContext";
+import {
+  AndNowJoseContext,
+  TestEmblem,
+} from "../../../contexts/AndNowJoseContext";
 import { api } from "../../../services/api";
 import { toast } from "react-toastify";
 
 export const Internet = () => {
-  const { correctAnswers, handleUserRanking } = useContext(AndNowJoseContext);
+  const { correctAnswers, handleUserRanking, handleUserTestEmblem } =
+    useContext(AndNowJoseContext);
 
   const storedModule = localStorage.getItem("currentModule");
   const storedEmail = localStorage.getItem("userEmail");
@@ -15,6 +19,12 @@ export const Internet = () => {
   const navigate = useNavigate();
 
   const [userRanking, setUserRanking] = useState<number>();
+  const [userEmblem, setUserEmblem] = useState<TestEmblem>({
+    result: "",
+    resultText: "",
+    description: "",
+  });
+
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
@@ -64,7 +74,9 @@ export const Internet = () => {
   };
 
   const handleReturnModule = async () => {
-    await fetchData();
+    if (userRanking !== 5) {
+      await fetchData();
+    }
     navigate("/Home/Modules/Internet");
   };
 
@@ -72,19 +84,22 @@ export const Internet = () => {
     setUserRanking(handleUserRanking(correctAnswers));
   }, [correctAnswers]);
 
+  useEffect(() => {
+    if (userRanking) {
+      setUserEmblem(
+        handleUserTestEmblem(storedModule ?? "", userRanking, correctAnswers)
+      );
+    }
+  }, [userRanking]);
+
   return (
     <FeedbackContainer>
       <div className="feedback">
         <div className="img">
-          <img src={FeedbackPhoto} />
+          <img src={userEmblem.result} />
         </div>
-        <h2>Parabéns! Você conquistou uma medalha de Platina!</h2>
-        <p>
-          Você acertou todas as questões da Revisão do módulo{" "}
-          <b>Básicos de Whatsapp!</b> Agora este emblema será exibido no seu
-          perfil, e além disso sua posição no ranking de alunos será elevada por
-          conta de sua mais nova conquista!
-        </p>
+        <h2>{userEmblem.resultText}</h2>
+        <p>{userEmblem.description}</p>
         <button className="button" onClick={handleReturnModule}>
           Retornar ao Módulo
         </button>

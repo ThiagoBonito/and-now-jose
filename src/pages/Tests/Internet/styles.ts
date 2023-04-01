@@ -36,7 +36,6 @@ export const ClassContainer = styled.div`
   .contentClass {
     display: flex;
     flex: 0.85;
-    height: 90vh;
     flex-direction: column;
     padding: 0 2rem;
 
@@ -47,17 +46,20 @@ export const ClassContainer = styled.div`
       justify-content: center;
     }
 
-    div:nth-child(1) {
-      height: 110vh;
+    .question {
+      display: flex;
+      flex-direction: column;
+      height: 45vh;
       overflow: auto;
     }
+
     p {
       margin: 1rem 0;
     }
     .options {
       display: flex;
       flex-direction: column;
-      margin-top: 1rem;
+      height: 30vh;
       div {
         display: flex;
         flex: 1;
@@ -124,10 +126,6 @@ export const ClassContainer = styled.div`
       margin-bottom: 1rem;
     }
     .contentClass {
-      div:nth-child(1) {
-        height: 50vh;
-        overflow: auto;
-      }
       h5 {
         font-size: 0.75rem;
       }
