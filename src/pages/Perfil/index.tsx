@@ -15,6 +15,7 @@ import { ptBR } from "date-fns/locale";
 import { RankingsResponse } from "../Rankings";
 import { CircularProgress } from "@mui/material";
 import { AndNowJoseContext } from "../../contexts/AndNowJoseContext";
+import { useNavigate } from "react-router-dom";
 
 type PerfilResponse = {
   id: number;
@@ -33,6 +34,8 @@ type UserEmblemsDisplay = {
 };
 
 export const Perfil = () => {
+  const navigate = useNavigate();
+
   const storedEmail = localStorage.getItem("userEmail");
   const storedFullName = localStorage.getItem("userFullName");
 
@@ -181,7 +184,7 @@ export const Perfil = () => {
                   </div>
                 </div>
               </div>
-              <button className="editUser">
+              <button className="editUser" onClick={() => navigate("Edicao")}>
                 <NotePencil size={24} />
                 Editar Perfil
               </button>
