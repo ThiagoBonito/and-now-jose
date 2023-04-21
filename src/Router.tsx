@@ -17,6 +17,7 @@ import { Seguranca as SegurancaTest } from "./pages/Tests/Seguranca";
 import { WhatsApp as WhatsAppFeedBack } from "./pages/Feedback/WhatsApp";
 import { Internet as InternetFeedBack } from "./pages/Feedback/Internet";
 import { Seguranca as SegurancaFeedBack } from "./pages/Feedback/Seguranca";
+import { Edit } from "./pages/Perfil/Edit";
 
 export function Router() {
   return (
@@ -46,6 +47,7 @@ export function Router() {
       </Route>
       <Route path="/Perfil" element={<DefaultLayout />}>
         <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/Perfil/Edicao" element={<Edit />} />
       </Route>
     </Routes>
   );

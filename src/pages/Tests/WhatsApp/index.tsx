@@ -152,7 +152,7 @@ export const WhatsApp = () => {
           </div>
         ) : (
           <>
-            <div>
+            <div className="question">
               <h5>Revisão Módulo 1</h5>
               <h2>Básico do WhatsApp</h2>
               <p>{testData?.questions[currentEtapa].question}</p>
@@ -160,7 +160,7 @@ export const WhatsApp = () => {
             <div className="options">
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option1}
@@ -179,7 +179,7 @@ export const WhatsApp = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option2}
@@ -198,7 +198,7 @@ export const WhatsApp = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option3}
@@ -217,7 +217,7 @@ export const WhatsApp = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option4}

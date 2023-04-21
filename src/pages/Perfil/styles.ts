@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const PerfilContainer = styled.div`
   display: flex;
   flex: 1;
+  flex-direction: column;
   margin-top: 5.5rem;
   margin-left: 16%;
 
@@ -17,7 +18,7 @@ export const UserContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-left: 1.5rem;
+  margin: 0 0 2.5rem 1.5rem;
 
   h1 {
     margin: 1.5rem 0;
@@ -137,6 +138,33 @@ export const UserContainer = styled.div`
       .editUser {
         width: 100%;
         margin: 0;
+      }
+    }
+  }
+`;
+
+export const EmblemsContainer = styled.div`
+  margin-bottom: 1rem;
+
+  h1 {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+
+  .cardEmblem {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+
+    div {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 8rem;
       }
     }
   }

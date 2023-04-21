@@ -135,15 +135,15 @@ export const Seguranca = () => {
           </div>
         ) : (
           <>
-            <div>
-              <h5>Revisão Módulo 1</h5>
-              <h2>Básico do WhatsApp</h2>
+            <div className="question">
+              <h5>Revisão Módulo 3</h5>
+              <h2>Segurança na Rede</h2>
               <p>{testData?.questions[currentEtapa].question}</p>
             </div>
             <div className="options">
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option1}
@@ -162,7 +162,7 @@ export const Seguranca = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option2}
@@ -181,7 +181,7 @@ export const Seguranca = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option3}
@@ -200,7 +200,7 @@ export const Seguranca = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option4}

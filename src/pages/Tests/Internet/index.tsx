@@ -135,9 +135,9 @@ export const Internet = () => {
           </div>
         ) : (
           <>
-            <div>
-              <h5>Revisão Módulo 1</h5>
-              <h2>Básico do WhatsApp</h2>
+            <div className="question">
+              <h5>Revisão Módulo 2</h5>
+              <h2>Navegação na Internet</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
                 tempus ornare porta. Cras sit amet tellus egestas urna feugiat
@@ -152,7 +152,7 @@ export const Internet = () => {
             <div className="options">
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option1}
@@ -171,7 +171,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option2}
@@ -190,7 +190,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option3}
@@ -209,7 +209,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1 }}
+                  style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
                       checked={option4}
