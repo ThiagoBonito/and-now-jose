@@ -22,6 +22,8 @@ export const Internet = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingFinish, setIsLoadingFinish] = useState(false);
 
+  const [formattedDescription, setFormattedDescription] = useState("");
+
   const handleBackModulePage = () => {
     localStorage.removeItem("currentClass");
     localStorage.removeItem("currentClassIsFinished");
@@ -78,6 +80,16 @@ export const Internet = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (classData) {
+      setFormattedDescription(
+        classData.description
+          .replace(/<br\/>/g, "\n")
+          .replace(/<b>(.*?)<\/b>/gi, "<strong>$1</strong>")
+      );
+    }
+  }, [classData]);
+
   return (
     <ClassContainer>
       <div className="backPage">
@@ -95,7 +107,10 @@ export const Internet = () => {
           <div>
             <h5>Módulo 2</h5>
             <h2>{classData?.title ?? ""}</h2>
-            <p>{classData?.description ?? ""}</p>
+            <p
+              style={{ whiteSpace: "pre-wrap" }}
+              dangerouslySetInnerHTML={{ __html: formattedDescription }}
+            />
           </div>
           <div className="buttonFinished">
             <button onClick={handleFinishClass}>
