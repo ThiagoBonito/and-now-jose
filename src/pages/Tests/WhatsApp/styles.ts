@@ -50,7 +50,7 @@ export const ClassContainer = styled.div`
     .question {
       display: flex;
       flex-direction: column;
-      height: 45vh;
+      height: 40vh;
       overflow: auto;
     }
 
@@ -60,13 +60,14 @@ export const ClassContainer = styled.div`
     .options {
       display: flex;
       flex-direction: column;
-      height: 30vh;
+      height: 35vh;
       div {
         display: flex;
         flex: 1;
         border: 3px solid ${(props) => props.theme["green-400"]};
         border-radius: 6px;
         padding-left: 0.5rem;
+        padding-top: 0.25rem;
         margin-bottom: 0.5rem;
       }
     }

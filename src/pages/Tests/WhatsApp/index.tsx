@@ -45,6 +45,7 @@ export const WhatsApp = () => {
   const [currentEtapa, setCurrentEtapa] = useState<number>(0);
 
   const [currentAnswer, setCurrentAnswer] = useState(false);
+  const [skipQuestion, setSkipQuestion] = useState(false);
 
   const [option1, setOption1] = useState(false);
   const [option2, setOption2] = useState(false);
@@ -92,6 +93,11 @@ export const WhatsApp = () => {
     }
   };
 
+  const handleskipQuestion = () => {
+    setCurrentAnswer(false);
+    setSkipQuestion(true);
+  };
+
   const fetchTestData = async () => {
     setIsLoading(true);
     const { data } = await api.post("/test", {
@@ -134,6 +140,13 @@ export const WhatsApp = () => {
     setOption4(false);
   }, [currentEtapa]);
 
+  useEffect(() => {
+    if (skipQuestion && !currentAnswer) {
+      handleFinishClass();
+      setSkipQuestion(false);
+    }
+  }, [skipQuestion, currentAnswer]);
+
   return (
     <ClassContainer>
       <div className="backPage">
@@ -155,7 +168,13 @@ export const WhatsApp = () => {
             <div className="question">
               <h5>Revisão Módulo 1</h5>
               <h2>Básico do WhatsApp</h2>
-              <p>{testData?.questions[currentEtapa].question}</p>
+              <h5>{testData?.questions[currentEtapa]?.id}° Questão</h5>
+              <p
+                style={{ whiteSpace: "pre-wrap" }}
+                dangerouslySetInnerHTML={{
+                  __html: testData?.questions[currentEtapa].question ?? "",
+                }}
+              />
             </div>
             <div className="options">
               <div>
@@ -163,6 +182,12 @@ export const WhatsApp = () => {
                   style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
+                      sx={{
+                        color: "#00E272",
+                        "&.Mui-checked": {
+                          color: "#00E272",
+                        },
+                      }}
                       checked={option1}
                       onChange={(e) => {
                         handleChange(1);
@@ -182,6 +207,12 @@ export const WhatsApp = () => {
                   style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
+                      sx={{
+                        color: "#00E272",
+                        "&.Mui-checked": {
+                          color: "#00E272",
+                        },
+                      }}
                       checked={option2}
                       onChange={(e) => {
                         handleChange(2);
@@ -201,6 +232,12 @@ export const WhatsApp = () => {
                   style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
+                      sx={{
+                        color: "#00E272",
+                        "&.Mui-checked": {
+                          color: "#00E272",
+                        },
+                      }}
                       checked={option3}
                       onChange={(e) => {
                         handleChange(3);
@@ -220,6 +257,12 @@ export const WhatsApp = () => {
                   style={{ display: "flex", flex: 1, height: "2rem" }}
                   control={
                     <Checkbox
+                      sx={{
+                        color: "#00E272",
+                        "&.Mui-checked": {
+                          color: "#00E272",
+                        },
+                      }}
                       checked={option4}
                       onChange={(e) => {
                         handleChange(4);
@@ -237,8 +280,10 @@ export const WhatsApp = () => {
             </div>
             <div className="buttonsContainer">
               <div className="helpButtons">
-                <button className="help">Usar Dica</button>
-                <button className="skip">Pular Questão</button>
+                {/* <button className="help">Usar Dica</button> */}
+                <button className="skip" onClick={handleskipQuestion}>
+                  Pular Questão
+                </button>
               </div>
               <button className="save" onClick={handleFinishClass}>
                 {testData?.questions[currentEtapa + 1]
