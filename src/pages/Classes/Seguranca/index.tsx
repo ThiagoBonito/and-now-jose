@@ -82,11 +82,7 @@ export const Seguranca = () => {
 
   useEffect(() => {
     if (classData) {
-      setFormattedDescription(
-        classData.description
-          .replace(/<br\/>/g, "\n")
-          .replace(/<b>(.*?)<\/b>/gi, "<strong>$1</strong>")
-      );
+      setFormattedDescription(classData.description.replace(/<br\/>/g, "\n"));
     }
   }, [classData]);
 
