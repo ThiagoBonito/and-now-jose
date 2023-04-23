@@ -61,6 +61,11 @@ export const EditContainer = styled.div`
         padding: 0 2rem;
         border: none;
         border-radius: 6px;
+
+        &:disabled {
+          opacity: 0.8;
+          cursor: not-allowed;
+        }
       }
     }
 
@@ -90,6 +95,8 @@ export const EditContainer = styled.div`
               justify-content: center;
               gap: 0.5rem;
               font-weight: bold;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
           }
 
@@ -125,6 +132,11 @@ export const EditContainer = styled.div`
           border: 1px solid ${(props) => props.theme["gray-200"]};
           border-radius: 4px;
           margin-bottom: 1rem;
+
+          &:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+          }
         }
 
         .passwordContainer {

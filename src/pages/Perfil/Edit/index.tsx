@@ -7,14 +7,20 @@ import { useDropzone } from "react-dropzone";
 export const Edit = () => {
   const navigate = useNavigate();
 
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: { "image/*": [] },
-  });
-
   const storedEmail = localStorage.getItem("userEmail");
   const storedFullName = localStorage.getItem("userFullName");
+  const storedPhoto = localStorage.getItem("userPhoto");
 
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState(storedPhoto ?? "");
+
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    accept: { "image/*": [] },
+    disabled: files?.length > 0,
+  });
+
+  const [name, setName] = useState(storedFullName);
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -27,8 +33,17 @@ export const Edit = () => {
     }
   };
 
+  const handleSaveChangesDisabled = () => {
+    if (name === "" || oldPassword === "" || newPassword === "") {
+      return true;
+    }
+    return false;
+  };
+
   useEffect(() => {
-    setFiles(acceptedFiles?.length > 0 ? acceptedFiles[0].name : "");
+    if (!files) {
+      setFiles(acceptedFiles?.length > 0 ? acceptedFiles[0].name : "");
+    }
   }, [acceptedFiles]);
 
   return (
@@ -46,7 +61,7 @@ export const Edit = () => {
             <h5>Perfil</h5>
             <h2>Edição de Perfil</h2>
           </div>
-          <button>
+          <button disabled={handleSaveChangesDisabled()}>
             <Check size={32} />
             Salvar Alterações
           </button>
@@ -56,7 +71,7 @@ export const Edit = () => {
             <h3>Foto do Perfil</h3>
             <div className="controlButtons">
               <div {...getRootProps({ className: "dropzone" })}>
-                <input {...getInputProps()} />
+                <input {...getInputProps()} disabled={files?.length > 0} />
                 <div className="button">
                   <Image size={24} />
                   {files?.length > 0 ? `${files}` : "Adicionar Foto"}
@@ -70,15 +85,27 @@ export const Edit = () => {
           </div>
           <div className="infos">
             <h3>Nome Completo</h3>
-            <input type="text" className="simpleInput" />
+            <input
+              type="text"
+              className="simpleInput"
+              value={name ?? ""}
+              onChange={(e) => setName(e.target.value)}
+            />
             <h3>Email</h3>
-            <input type="email" className="simpleInput" />
+            <input
+              type="email"
+              className="simpleInput"
+              value={storedEmail ?? ""}
+              disabled={true}
+            />
             <h3>Senha</h3>
             <h4>Senha Atual</h4>
             <div className="passwordContainer">
               <input
                 type={showOldPassword ? "text" : "password"}
                 className="passwordInput"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
               />
               <span
                 className="passwordIcon"
@@ -92,6 +119,8 @@ export const Edit = () => {
               <input
                 type={showNewPassword ? "text" : "password"}
                 className="passwordInput"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
               <span
                 className="passwordIcon"
