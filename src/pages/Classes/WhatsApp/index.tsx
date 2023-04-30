@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../../services/api";
 import { ClassContainer } from "./styles";
+import YouTube from "react-youtube";
 
 export type ClassDataProps = {
   id: number;
@@ -105,6 +106,14 @@ export const WhatsApp = () => {
               style={{ whiteSpace: "pre-wrap" }}
               dangerouslySetInnerHTML={{ __html: classData?.description ?? "" }}
             />
+            {["Vídeo 1", "Vídeo 2"].map((data) => (
+              <div className="video">
+                <p>{data}:</p>
+                <div>
+                  <YouTube videoId="PSA8M0VRZhw" />
+                </div>
+              </div>
+            ))}
           </div>
           <div className="buttonFinished">
             <button onClick={handleFinishClass}>

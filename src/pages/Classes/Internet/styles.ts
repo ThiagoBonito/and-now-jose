@@ -47,6 +47,18 @@ export const ClassContainer = styled.div`
     p {
       margin: 1rem 0;
     }
+
+    .video {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+      }
+    }
+
     .buttonFinished {
       display: flex;
       flex-direction: row;
