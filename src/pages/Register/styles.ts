@@ -82,6 +82,20 @@ export const RegisterContainer = styled.div`
     border: 1px solid ${(props) => props.theme["gray-300"]};
     border-radius: 8px;
   }
+
+  .passwordContainer {
+    display: flex;
+    position: relative;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-65%);
+    cursor: pointer;
+    color: ${(props) => props.theme["black-200"]};
+  }
   .login {
     background-color: ${(props) => props.theme["green-400"]};
     color: ${(props) => props.theme["white"]};

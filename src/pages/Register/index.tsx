@@ -6,6 +6,7 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import { Eye, EyeSlash } from "phosphor-react";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -80,12 +83,20 @@ export const Register = () => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        <input
-          placeholder="Senha"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="passwordContainer">
+          <input
+            placeholder="Senha"
+            type={showPassword ? "text" : "password"}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <span
+            className="icon"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? <EyeSlash size={24} /> : <Eye size={24} />}
+          </span>
+        </div>
         <button
           className="login"
           disabled={!fullName || !email || !username || !password || isLoading}

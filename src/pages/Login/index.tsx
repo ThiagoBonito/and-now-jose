@@ -12,12 +12,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services/api";
 import { CircularProgress } from "@mui/material";
+import { Eye, EyeSlash, UserCircle } from "phosphor-react";
 
 export const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -48,25 +51,43 @@ export const Login = () => {
           <img src={Logo} />
           <h1>Bem-vindo, estudante!</h1>
           <p>
-            Bem-vindo de volta! Por gentileza, informe seu usuário e senha para
-            ingressar na plataforma.
+            Bem-vindo de volta! Por gentileza, informe o seu usuário e senha nos
+            campos abaixo para ingressar na plataforma e retomar o seu
+            progresso.
           </p>
-          <input
-            placeholder="Nome do usuário"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            placeholder="Digite sua senha"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <div className="optionsPassword">
+          <div className="passwordContainer">
+            <input
+              placeholder="Nome do usuário"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span className="icon">
+              <UserCircle size={24} color={"#425675"} />
+            </span>
+          </div>
+          <div className="passwordContainer">
+            <input
+              placeholder="Digite sua senha"
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span
+              className="icon"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? (
+                <EyeSlash size={24} color={"#425675"} />
+              ) : (
+                <Eye size={24} color={"#425675"} />
+              )}
+            </span>
+          </div>
+          {/* <div className="optionsPassword">
             <div>Lembrar senha</div>
             <a>Esqueci minha senha</a>
-          </div>
+          </div> */}
           <button className="login" onClick={handleLogin} disabled={isLoading}>
             {isLoading ? (
               <CircularProgress color="inherit" size={24} />
@@ -84,10 +105,13 @@ export const Login = () => {
         </LoginContent>
       </LoginContainer>
       <InfoContainer>
-        <h1>Seja Bem Vindo ao E Agora José?</h1>
+        <h1>
+          Seja Bem Vindo ao <i>E Agora José!</i>
+        </h1>
         <p>
-          A plataforma que tem como missão, ajudar você a aprender e compreender
-          as funcionalidades de seu celular!
+          A nossa plataforma tem a missão de te ajudar a compreender as
+          múltiplas funcionalidades que um celular contém através de aulas
+          didáticas e recompensas ao progredir em sua jornada. Vamos nessa!
         </p>
         <img src={OldManVector} />
       </InfoContainer>

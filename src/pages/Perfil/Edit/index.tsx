@@ -72,9 +72,14 @@ export const Edit = () => {
             <div className="controlButtons">
               <div {...getRootProps({ className: "dropzone" })}>
                 <input {...getInputProps()} disabled={files?.length > 0} />
-                <div className="button">
-                  <Image size={24} />
-                  {files?.length > 0 ? `${files}` : "Adicionar Foto"}
+                <div
+                  className="button"
+                  title={files?.length > 0 ? `${files}` : "Adicionar Foto"}
+                >
+                  {!files ? <Image size={24} /> : ""}
+                  <span className="buttonText">
+                    {files?.length > 0 ? `${files}` : "Adicionar Foto"}
+                  </span>
                 </div>
               </div>
               <button className="removePhoto" onClick={() => setFiles("")}>

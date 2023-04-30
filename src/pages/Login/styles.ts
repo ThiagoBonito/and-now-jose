@@ -50,6 +50,20 @@ export const LoginContainer = styled.div`
     border-radius: 8px;
   }
 
+  .passwordContainer {
+    display: flex;
+    position: relative;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-65%);
+    cursor: pointer;
+    color: ${(props) => props.theme["black-200"]};
+  }
+
   .optionsPassword {
     display: flex;
     flex: 1;
@@ -81,6 +95,7 @@ export const LoginContainer = styled.div`
     .navigate {
       text-decoration: underline;
       display: flex;
+      padding-top: 0.2rem;
       border: none;
       height: fit-content;
       background-color: transparent;
@@ -109,6 +124,11 @@ export const LoginContainer = styled.div`
     }
     a {
       font-size: 0.75rem;
+    }
+    .register {
+      .navigate {
+        padding-top: 0;
+      }
     }
   }
 `;

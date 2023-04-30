@@ -95,8 +95,13 @@ export const EditContainer = styled.div`
               justify-content: center;
               gap: 0.5rem;
               font-weight: bold;
-              text-overflow: ellipsis;
-              white-space: nowrap;
+              max-width: 100%;
+
+              .buttonText {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+              }
             }
           }
 
