@@ -144,7 +144,11 @@ export const Internet = () => {
       <div className="contentClass">
         {isLoading ? (
           <div className="isloading">
-            <CircularProgress color="success" size={128} thickness={2} />
+            <CircularProgress
+              sx={{ color: "#00CFA8" }}
+              size={128}
+              thickness={2}
+            />
           </div>
         ) : (
           <>
@@ -162,7 +166,7 @@ export const Internet = () => {
             <div className="options">
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1, height: "2rem" }}
+                  style={{ display: "flex", flex: 1, height: "3.5rem" }}
                   control={
                     <Checkbox
                       sx={{
@@ -187,7 +191,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1, height: "2rem" }}
+                  style={{ display: "flex", flex: 1, height: "3.5rem" }}
                   control={
                     <Checkbox
                       sx={{
@@ -212,7 +216,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1, height: "2rem" }}
+                  style={{ display: "flex", flex: 1, height: "3.5rem" }}
                   control={
                     <Checkbox
                       sx={{
@@ -237,7 +241,7 @@ export const Internet = () => {
               </div>
               <div>
                 <FormControlLabel
-                  style={{ display: "flex", flex: 1, height: "2rem" }}
+                  style={{ display: "flex", flex: 1, height: "3.5rem" }}
                   control={
                     <Checkbox
                       sx={{

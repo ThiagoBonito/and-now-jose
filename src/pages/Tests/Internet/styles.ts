@@ -42,6 +42,7 @@ export const ClassContainer = styled.div`
     .isloading {
       display: flex;
       flex: 1;
+      margin-top: 20%;
       align-items: center;
       justify-content: center;
     }
@@ -49,7 +50,7 @@ export const ClassContainer = styled.div`
     .question {
       display: flex;
       flex-direction: column;
-      height: 40vh;
+      height: 30vh;
       overflow: auto;
     }
 
@@ -59,7 +60,7 @@ export const ClassContainer = styled.div`
     .options {
       display: flex;
       flex-direction: column;
-      height: 35vh;
+      height: 45vh;
       div {
         display: flex;
         flex: 1;

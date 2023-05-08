@@ -43,6 +43,7 @@ export const ClassContainer = styled.div`
       display: flex;
       flex: 1;
       align-items: center;
+      margin-top: 20%;
       justify-content: center;
     }
 

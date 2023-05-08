@@ -58,7 +58,11 @@ export const Seguranca = () => {
       </div>
       {isLoading ? (
         <div className="loadingContainer">
-          <CircularProgress color="success" size={128} thickness={2} />
+          <CircularProgress
+            sx={{ color: "#00B8D6" }}
+            size={128}
+            thickness={2}
+          />
         </div>
       ) : (
         <div className="contentClass">

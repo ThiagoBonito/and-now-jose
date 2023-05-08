@@ -89,7 +89,11 @@ export const Internet = () => {
       </div>
       {isLoading ? (
         <div className="loadingContainer">
-          <CircularProgress color="success" size={128} thickness={2} />
+          <CircularProgress
+            sx={{ color: "#00CFA8" }}
+            size={128}
+            thickness={2}
+          />
         </div>
       ) : (
         <div className="contentClass">
