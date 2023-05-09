@@ -135,7 +135,7 @@ export const Edit = () => {
           </button>
         </div>
         <div className="content">
-          <div className="photos">
+          {/* <div className="photos">
             <h3>Foto do Perfil</h3>
             <div className="controlButtons">
               <div {...getRootProps({ className: "dropzone" })}>
@@ -155,7 +155,7 @@ export const Edit = () => {
                 Remover Foto
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="infos">
             <h3>Nome Completo</h3>
             <input
