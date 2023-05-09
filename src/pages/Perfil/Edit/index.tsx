@@ -1,8 +1,18 @@
-import { ArrowLeft, Check, Eye, EyeSlash, Image, Trash } from "phosphor-react";
+import {
+  ArrowLeft,
+  Check,
+  Eye,
+  EyeSlash,
+  Image,
+  Phone,
+  Trash,
+} from "phosphor-react";
 import { EditContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { api } from "../../../services/api";
+import { toast } from "react-toastify";
 
 export const Edit = () => {
   const navigate = useNavigate();
@@ -12,6 +22,7 @@ export const Edit = () => {
   const storedPhoto = localStorage.getItem("userPhoto");
 
   const [files, setFiles] = useState(storedPhoto ?? "");
+  const [fileBase64, setFileBase64] = useState<string | ArrayBuffer | null>("");
 
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: { "image/*": [] },
@@ -24,6 +35,8 @@ export const Edit = () => {
 
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleShowPassword = (input: string) => {
     if (input === "old") {
@@ -40,9 +53,61 @@ export const Edit = () => {
     return false;
   };
 
+  const handleEdit = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await api.put("/updateUser", {
+        auth: {
+          email: storedEmail,
+          fullName: storedFullName,
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+        },
+      });
+      setIsLoading(false);
+      return toast.success("Dados do usuário atualizados com sucesso!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+      return toast.error("Falha ao atualizar os dados do usuário!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
+
   useEffect(() => {
     if (!files) {
       setFiles(acceptedFiles?.length > 0 ? acceptedFiles[0].name : "");
+
+      // const reader = new FileReader();
+      // if (acceptedFiles.length === 0) return;
+
+      // reader.readAsDataURL(acceptedFiles[0]);
+      // reader.onload = () => {
+      //   const base64: string = reader.result as string;
+      //   const match = base64.match(/^data:(.*?);base64,(.*)$/);
+
+      //   if (match && match.length === 3) {
+      //     const [, mimeType, base64String] = match;
+      //     const byteArray = Uint8Array.from(atob(base64String), (c) =>
+      //       c.charCodeAt(0)
+      //     );
+
+      //     const compressedArray = pako.deflate(byteArray);
+      //     const compressedBase64 = btoa(
+      //       String.fromCharCode(...new Uint8Array(compressedArray))
+      //     );
+
+      //     const compressedArray2 = pako.deflate(byteArray, { level: 9 }); // nível máximo de compressão
+      //     const compressedBase64_2 = btoa(
+      //       String.fromCharCode(...new Uint8Array(compressedArray2))
+      //     );
+
+      //     setFileBase64(compressedBase64_2);
+      //   }
+      // };
     }
   }, [acceptedFiles]);
 
@@ -61,7 +126,10 @@ export const Edit = () => {
             <h5>Perfil</h5>
             <h2>Edição de Perfil</h2>
           </div>
-          <button disabled={handleSaveChangesDisabled()}>
+          <button
+            disabled={handleSaveChangesDisabled()}
+            onClick={() => handleEdit()}
+          >
             <Check size={32} />
             Salvar Alterações
           </button>
