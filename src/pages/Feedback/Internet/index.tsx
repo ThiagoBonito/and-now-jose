@@ -36,7 +36,7 @@ export const Internet = () => {
       await fetchInsert();
       setIsLoading(false);
     } else {
-      if (Number(data[0].ranking) < (userRanking ?? 0)) {
+      if (Number(data[0].ranking) > (userRanking ?? 0)) {
         await fetchUpdate();
       }
       setIsLoading(false);

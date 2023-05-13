@@ -40,10 +40,10 @@ export const Register = () => {
       localStorage.setItem("userFullName", fullName);
       setIsLoading(false);
       navigate("/Home");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       setIsLoading(false);
-      return toast.error("Ocorreu um erro ao criar o usuário", {
+      return toast.error(`Erro: ${error?.response?.data?.error}`, {
         position: toast.POSITION.TOP_RIGHT,
       });
     }

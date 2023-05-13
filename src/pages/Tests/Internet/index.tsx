@@ -272,7 +272,11 @@ export const Internet = () => {
                   Pular Questão
                 </button>
               </div>
-              <button className="save" onClick={handleFinishClass}>
+              <button
+                className="save"
+                disabled={!option1 && !option2 && !option3 && !option4}
+                onClick={handleFinishClass}
+              >
                 {testData?.questions[currentEtapa + 1]
                   ? "Salvar Resposta"
                   : "Finalizar Revisão"}

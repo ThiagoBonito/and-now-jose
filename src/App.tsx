@@ -4,6 +4,8 @@ import { Router } from "./Router";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { AndNowJoseContextProvider } from "./contexts/AndNowJoseContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
   return (
@@ -11,6 +13,7 @@ export function App() {
       <BrowserRouter>
         <AndNowJoseContextProvider>
           <Router />
+          <ToastContainer />
         </AndNowJoseContextProvider>
       </BrowserRouter>
       <GlobalStyle />
