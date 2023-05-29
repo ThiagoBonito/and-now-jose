@@ -100,27 +100,26 @@ export const Seguranca = () => {
           <div>
             <h5>Módulo 3</h5>
             <h2>{classData?.title ?? ""}</h2>
+            {classData?.videos && (
+              <div className="video">
+                <div>
+                  <YouTube videoId={classData?.videos || ""} />
+                </div>
+              </div>
+            )}
             <p
               style={{ whiteSpace: "pre-wrap" }}
               dangerouslySetInnerHTML={{ __html: classData?.description ?? "" }}
             />
-            {["Vídeo 1", "Vídeo 2"].map((data) => (
-              <div className="video">
-                <p>{data}:</p>
-                <div>
-                  <YouTube videoId="PSA8M0VRZhw" />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="buttonFinished">
-            <button onClick={handleFinishClass}>
-              {isLoadingFinish ? (
-                <CircularProgress color="inherit" size={24} thickness={2} />
-              ) : (
-                "Finalizar Aula"
-              )}
-            </button>
+            <div className="buttonFinished">
+              <button onClick={handleFinishClass}>
+                {isLoadingFinish ? (
+                  <CircularProgress color="inherit" size={24} thickness={2} />
+                ) : (
+                  "Finalizar Aula"
+                )}
+              </button>
+            </div>
           </div>
         </div>
       )}

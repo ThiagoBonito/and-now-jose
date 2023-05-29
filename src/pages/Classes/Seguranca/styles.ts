@@ -48,6 +48,9 @@ export const ClassContainer = styled.div`
       margin: 1rem 0;
     }
 
+    h2 {
+      margin-bottom: 0.5rem;
+    }
     .video {
       display: flex;
       flex-direction: column;
@@ -55,7 +58,7 @@ export const ClassContainer = styled.div`
       div {
         display: flex;
         justify-content: center;
-        margin-bottom: 0.5rem;
+        height: 22.5rem;
       }
     }
 
