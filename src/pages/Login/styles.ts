@@ -125,12 +125,23 @@ export const LoginContainer = styled.div`
     a {
       font-size: 0.75rem;
     }
+  }
+
+  @media (max-width: 1254px) {
     .register {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      justify-content: center !important;
+      p {
+        margin: 0;
+      }
       .navigate {
         padding-top: 0;
       }
     }
   }
+
   @media (min-width: 1600px) {
     .icon {
       right: 1.5rem;

@@ -90,7 +90,7 @@ export const RegisterContainer = styled.div`
 
   .icon {
     position: absolute;
-    right: 10px;
+    right: 0.75rem;
     top: 50%;
     transform: translateY(-65%);
     cursor: pointer;
@@ -122,6 +122,12 @@ export const RegisterContainer = styled.div`
     }
     p {
       font-size: 0.75rem;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .icon {
+      right: 2rem;
     }
   }
 `;
