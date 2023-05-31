@@ -49,7 +49,7 @@ export const Login = () => {
       <LoginContainer>
         <LoginContent>
           <img src={Logo} />
-          <h1>Bem-vindo, estudante!</h1>
+          <h1>Olá, estudante!</h1>
           <p>
             Bem-vindo de volta! Por gentileza, informe o seu usuário e senha nos
             campos abaixo para ingressar na plataforma e retomar o seu
@@ -97,16 +97,16 @@ export const Login = () => {
           </button>
           <ToastContainer />
           <div className="register">
-            <p>Não Tem uma Conta?</p>
+            <p>Ainda não tem uma conta?</p>
             <button className="navigate" onClick={() => navigate("/Cadastro")}>
-              Clique aqui, e se Inscreva!
+              Clique aqui e inscreva-se!
             </button>
           </div>
         </LoginContent>
       </LoginContainer>
       <InfoContainer>
         <h1>
-          Seja Bem Vindo ao <i>E Agora José!</i>
+          Seja bem-vindo ao <i>"E Agora José?"</i>
         </h1>
         <p>
           A nossa plataforma tem a missão de te ajudar a compreender as
