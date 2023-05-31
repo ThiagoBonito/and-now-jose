@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const ClassContainer = styled.div`
+type ClassContainerProps = {
+  isSelectSomeOption: boolean;
+  currentOptionSelected: number;
+};
+
+export const ClassContainer = styled.div<ClassContainerProps>`
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -70,12 +75,16 @@ export const ClassContainer = styled.div`
         padding-top: 0.25rem;
         margin-bottom: 0.5rem;
       }
+
+      div:nth-child(${(props) => props.currentOptionSelected}) {
+        background-color: ${(props) => props.theme["green-400"]} !important;
+      }
     }
     .buttonsContainer {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
+      margin-top: 2rem;
       button {
         cursor: pointer;
       }
@@ -103,7 +112,7 @@ export const ClassContainer = styled.div`
           font-size: 1rem;
           font-weight: bold;
           border-radius: 4px;
-          background-color: ${(props) => props.theme["gray-200"]};
+          background-color: ${(props) => props.theme["green-300"]};
         }
       }
       .save {
@@ -112,7 +121,10 @@ export const ClassContainer = styled.div`
         font-size: 1rem;
         font-weight: bold;
         border-radius: 4px;
-        background-color: ${(props) => props.theme["gray-200"]};
+        background-color: ${(props) =>
+          props.isSelectSomeOption
+            ? props.theme["green-300"]
+            : props.theme["gray-200"]};
       }
     }
   }
@@ -142,21 +154,25 @@ export const ClassContainer = styled.div`
         margin-bottom: 0.25rem !important;
       }
     }
-    .helpButtons {
-      gap: 0.5rem !important;
+    .buttonsContainer {
+      margin-top: 0 !important;
 
-      .help {
-        padding: 0.25rem 0.5rem !important;
+      .helpButtons {
+        gap: 0.5rem !important;
+
+        .help {
+          padding: 0.25rem 0.5rem !important;
+          font-size: 0.75rem !important;
+        }
+        .skip {
+          padding: 0.5rem 0.5rem !important;
+          font-size: 0.75rem !important;
+        }
+      }
+      .save {
+        padding: 0.5rem 0.5rem !important;
         font-size: 0.75rem !important;
       }
-      .skip {
-        padding: 0 0.5rem !important;
-        font-size: 0.75rem !important;
-      }
-    }
-    .save {
-      padding: 0 0.5rem !important;
-      font-size: 0.75rem !important;
     }
   }
 `;

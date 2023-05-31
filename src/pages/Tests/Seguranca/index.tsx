@@ -35,6 +35,8 @@ export const Seguranca = () => {
   const [option3, setOption3] = useState(false);
   const [option4, setOption4] = useState(false);
 
+  const [idPositionSave, setIdPositionSave] = useState(0);
+
   const handleChange = (type: number) => {
     switch (type) {
       case 1:
@@ -42,24 +44,28 @@ export const Seguranca = () => {
         setOption2(false);
         setOption3(false);
         setOption4(false);
+        setIdPositionSave(1);
         return;
       case 2:
         setOption1(false);
         setOption2(true);
         setOption3(false);
         setOption4(false);
+        setIdPositionSave(2);
         return;
       case 3:
         setOption1(false);
         setOption2(false);
         setOption3(true);
         setOption4(false);
+        setIdPositionSave(3);
         return;
       case 4:
         setOption1(false);
         setOption2(false);
         setOption3(false);
         setOption4(true);
+        setIdPositionSave(4);
         return;
     }
   };
@@ -98,6 +104,7 @@ export const Seguranca = () => {
   };
 
   const handleFinishClass = () => {
+    setIdPositionSave(0);
     if (currentAnswer) {
       addCorrectAnswer();
     }
@@ -111,6 +118,7 @@ export const Seguranca = () => {
   };
 
   useEffect(() => {
+    setIdPositionSave(0);
     setCurrentEtapa(0);
     fetchTestData();
     resetCorrectAnswer();
@@ -131,7 +139,10 @@ export const Seguranca = () => {
   }, [skipQuestion, currentAnswer]);
 
   return (
-    <ClassContainer>
+    <ClassContainer
+      isSelectSomeOption={option1 || option2 || option3 || option4}
+      currentOptionSelected={idPositionSave}
+    >
       <div className="backPage">
         <button
           className="button"
@@ -172,7 +183,7 @@ export const Seguranca = () => {
                       sx={{
                         color: "#00B8D6",
                         "&.Mui-checked": {
-                          color: "#00B8D6",
+                          color: "#fff",
                         },
                       }}
                       checked={option1}
@@ -197,7 +208,7 @@ export const Seguranca = () => {
                       sx={{
                         color: "#00B8D6",
                         "&.Mui-checked": {
-                          color: "#00B8D6",
+                          color: "#fff",
                         },
                       }}
                       checked={option2}
@@ -222,7 +233,7 @@ export const Seguranca = () => {
                       sx={{
                         color: "#00B8D6",
                         "&.Mui-checked": {
-                          color: "#00B8D6",
+                          color: "#fff",
                         },
                       }}
                       checked={option3}
@@ -247,7 +258,7 @@ export const Seguranca = () => {
                       sx={{
                         color: "#00B8D6",
                         "&.Mui-checked": {
-                          color: "#00B8D6",
+                          color: "#fff",
                         },
                       }}
                       checked={option4}
