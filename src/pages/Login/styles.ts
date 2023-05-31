@@ -57,7 +57,7 @@ export const LoginContainer = styled.div`
 
   .icon {
     position: absolute;
-    right: 10px;
+    right: 0.75rem;
     top: 50%;
     transform: translateY(-65%);
     cursor: pointer;
@@ -129,6 +129,11 @@ export const LoginContainer = styled.div`
       .navigate {
         padding-top: 0;
       }
+    }
+  }
+  @media (min-width: 1600px) {
+    .icon {
+      right: 1.5rem;
     }
   }
 `;
