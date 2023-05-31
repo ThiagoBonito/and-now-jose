@@ -147,6 +147,7 @@ export const InfoContainer = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme["green-400"]};
   border-radius: 8px 0px 0px 8px;
+  position: relative;
 
   h1 {
     color: ${(props) => props.theme["black-300"]};
@@ -163,10 +164,11 @@ export const InfoContainer = styled.div`
   }
 
   img {
-    margin-top: 10vh;
-    margin-left: 50%;
-    width: 50%;
-    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 60%;
   }
 
   @media (max-width: 768px) {
@@ -177,6 +179,13 @@ export const InfoContainer = styled.div`
     p {
       padding: 0 1.5rem;
       font-size: 0.75rem;
+    }
+    img {
+      position: static;
+      margin-top: 0 !important;
+      align-self: flex-end;
+      width: 50%;
+      max-height: 50%;
     }
   }
   @media (max-width: 1440px) {
