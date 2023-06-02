@@ -30,7 +30,7 @@ export const StatsCard = ({ data }: StatsCardProps) => {
 
   const handleRestUsers = () => {
     data.forEach((user, index) => {
-      if (index <= 3) {
+      if (index <= 2) {
         return;
       } else {
         setRestUsers((prev) => [...prev, user]);
@@ -72,6 +72,7 @@ export const StatsCard = ({ data }: StatsCardProps) => {
   };
 
   useEffect(() => {
+    setRestUsers([]);
     handleRestUsers();
     handleFindCurrentUser();
     setSliderPhotos([]);
@@ -84,11 +85,11 @@ export const StatsCard = ({ data }: StatsCardProps) => {
   return (
     <RankingsContainer
       currentSlide={currentPhoto}
-      slideLength={sliderPhotos.length}
+      slideLength={sliderPhotos?.length ?? 0}
     >
       <div className="symbolCard">
         <h1>Emblemas</h1>
-        {sliderPhotos.length === 0 ? (
+        {sliderPhotos?.length === 0 ? (
           <>
             <img src={EmptySymbol} />
             <p>Nenhum emblema encontrado!</p>
@@ -108,11 +109,11 @@ export const StatsCard = ({ data }: StatsCardProps) => {
               </button>
             </div>
             <div className="photo">
-              <img src={sliderPhotos[currentPhoto].url} />
-              <p>{handleCorrectNameModule(sliderPhotos[currentPhoto].name)}</p>
+              <img src={sliderPhotos[currentPhoto]?.url} />
+              <p>{handleCorrectNameModule(sliderPhotos[currentPhoto]?.name)}</p>
               <div className="footer">
-                {sliderPhotos.map((slide, index) => (
-                  <button onClick={() => setCurrentPhoto(index)}>
+                {sliderPhotos?.map((slide, index) => (
+                  <button key={index} onClick={() => setCurrentPhoto(index)}>
                     <Circle
                       size={8}
                       weight={"fill"}
@@ -126,7 +127,7 @@ export const StatsCard = ({ data }: StatsCardProps) => {
               <button
                 className="arrow-right"
                 onClick={() =>
-                  currentPhoto + 1 >= sliderPhotos.length
+                  currentPhoto + 1 >= sliderPhotos?.length
                     ? null
                     : setCurrentPhoto((prev) => prev + 1)
                 }
@@ -164,7 +165,7 @@ export const StatsCard = ({ data }: StatsCardProps) => {
         <div className="restUsers">
           {restUsers
             ? restUsers.map((user, index) => (
-                <div className="user">
+                <div key={index} className="user">
                   <p>#{index + 4}</p>
                   <div>
                     <img src={user?.image ?? EmptyPhoto} />

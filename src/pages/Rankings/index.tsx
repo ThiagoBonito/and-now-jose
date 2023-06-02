@@ -83,6 +83,7 @@ export const Rankings = () => {
 
   useEffect(() => {
     if (rankings) {
+      setRestUsers([]);
       handleRestUsers();
     }
   }, [rankings]);
@@ -155,7 +156,7 @@ export const Rankings = () => {
             </div>
             <div className="restUsers">
               {restUsers?.map((user, index) => (
-                <div className="user">
+                <div className="user" key={index}>
                   <div>
                     <p>#{index + 4}</p>
                     <img src={user?.image ?? EmptyPhoto} />
