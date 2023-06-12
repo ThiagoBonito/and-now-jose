@@ -100,7 +100,11 @@ export const WhatsApp = () => {
         </div>
         <h2>{userEmblem.resultText}</h2>
         <p>{userEmblem.description}</p>
-        <button className="button" onClick={handleReturnModule}>
+        <button
+          className="button"
+          onClick={handleReturnModule}
+          disabled={isLoading}
+        >
           Retornar ao Módulo
         </button>
       </div>
